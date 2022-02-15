@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import { LandingStyle, Modal } from './LandingStyle'
 import UZB from "../../assets/images/UzFlag.png"
 import UAE from "../../assets/images/UAE.webp"
 import USA from "../../assets/images/USA.webp"
 import { RiArrowDownSLine } from "react-icons/ri";
+import { StartContext } from "../../context/startContext"
+
 const LandingPage = () => {
     const [lang, setLang] = useState("UZB");
     const [choose, setChoose] = useState(false);
+    const [start, setStart] = useContext(StartContext);
+    const navigate = useNavigate();
     const Lang = () => {
         if (lang === "UZB") {
             return UZB;
@@ -54,7 +59,7 @@ const LandingPage = () => {
                     </div>
                 </Modal >
             </div>
-            <div className='center startButton'>
+            <div className='center startButton' onClick={() => navigate("/recitation")} >
                 <p>Bismillah</p>
             </div>
         </LandingStyle>
