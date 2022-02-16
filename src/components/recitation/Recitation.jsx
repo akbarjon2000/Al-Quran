@@ -4,7 +4,8 @@ import { ReciteStyle } from './ReciteStyle'
 const Recitation = () => {
     return (
         <ReciteStyle>
-            hello
+            <h1>Recite page coming soon</h1>
+
         </ReciteStyle>
     )
 }

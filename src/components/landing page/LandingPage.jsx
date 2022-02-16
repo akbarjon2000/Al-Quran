@@ -21,7 +21,10 @@ const LandingPage = () => {
             return UAE;
         }
     }
-
+    const Start = () => {
+        navigate("/recitation");
+        setStart(true);
+    }
     return (
         <LandingStyle choose={choose}>
             <h1 className='title'>القرآن الكريم</h1>
@@ -59,7 +62,7 @@ const LandingPage = () => {
                     </div>
                 </Modal >
             </div>
-            <div className='center startButton' onClick={() => navigate("/recitation")} >
+            <div className='center startButton' onClick={Start} >
                 <p>Bismillah</p>
             </div>
         </LandingStyle>
