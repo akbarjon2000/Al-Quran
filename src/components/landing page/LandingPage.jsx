@@ -29,7 +29,7 @@ const LandingPage = () => {
         <LandingStyle choose={choose}>
             <h1 className='title'>القرآن الكريم</h1>
             <div className='align__center langContainer'>
-                <p style={{ fontSize: "30px", color: "white", marginLeft: "10px" }}>Lang: </p>
+                <p style={{ fontSize: "30px", color: "white", marginLeft: "10px", marginBottom: "0" }}>Lang: </p>
                 <img
                     src={Lang()}
                     alt={lang}

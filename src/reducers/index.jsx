@@ -8,29 +8,32 @@ const initialState = {
 
 export default function navReducer(state = initialState, action) {
     switch (action.type) {
-        case "READ": {
+        case "CHANGE": {
             return {
-                ...state,
+
                 ...action.payload
             }
         }
-        case "RECITATION": {
-            return {
-                ...state,
-                ...action.payload
-            }
-        }
-        case "TRANSLATION": {
-            return {
-                ...state,
-                ...action.payload
-            }
-        }
-        case "Settings": {
-            return {
-                ...state,
-                ...action.payload
-            }
+        // case "RECITATION": {
+        //     return {
+        //         ...state,
+        //         ...action.payload
+        //     }
+        // }
+        // case "TRANSLATION": {
+        //     return {
+        //         ...state,
+        //         ...action.payload
+        //     }
+        // }
+        // case "Settings": {
+        //     return {
+        //         ...state,
+        //         ...action.payload
+        //     }
+        // }
+        default: {
+            return state;
         }
     }
 }

@@ -14,7 +14,7 @@ justify-content:space-between;
 }  
 .navText{
     font-size:20px;
-    color:white;
+    cursor: pointer;
 }
 .settings{
     font-size:25px;
