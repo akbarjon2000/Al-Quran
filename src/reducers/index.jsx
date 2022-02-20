@@ -6,7 +6,7 @@ const initialState = {
     setting: false
 }
 
-export default function navReducer(state = initialState, action) {
+export function navReducer(state = initialState, action) {
     switch (action.type) {
         case "CHANGE": {
             return {
@@ -14,24 +14,18 @@ export default function navReducer(state = initialState, action) {
                 ...action.payload
             }
         }
-        // case "RECITATION": {
-        //     return {
-        //         ...state,
-        //         ...action.payload
-        //     }
-        // }
-        // case "TRANSLATION": {
-        //     return {
-        //         ...state,
-        //         ...action.payload
-        //     }
-        // }
-        // case "Settings": {
-        //     return {
-        //         ...state,
-        //         ...action.payload
-        //     }
-        // }
+        default: {
+            return state;
+        }
+    }
+}
+export function surahReducer(state = { id: null }, action) {
+    switch (action.type) {
+        case "MOVE": {
+            return {
+                ...action.payload
+            }
+        }
         default: {
             return state;
         }

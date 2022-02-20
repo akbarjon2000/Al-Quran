@@ -4,7 +4,7 @@ import ReciteSidebar from './sidebar/ReciteSidebar'
 
 const index = () => {
     return (
-        <div style={{ display: "flex", height: "fit-content" }}>
+        <div style={{ display: "flex", overflowY: "hidden", height: "fit-content" }}>
             {/* <ReciteSidebar /> */}
             <Recitation />
         </div>

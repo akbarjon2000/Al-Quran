@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { ReciteStyle } from './ReciteStyle'
+import { ReciteStyle } from './ReciteStyle';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios"
 import QuranKemenag from "quran-kemenag";
 import { Layout, Menu } from 'antd';
@@ -13,6 +14,8 @@ import {
 import 'antd/dist/antd.css'
 
 import quranWord from "../../assets/images/quranulkarim.png";
+import Surah from './Surah';
+import Verses from './Verses/Verses';
 
 const { Header, Sider, Content, Footer } = Layout;
 const Recitation = () => {
@@ -20,6 +23,8 @@ const Recitation = () => {
     const [surah, setSurah] = useState(null);
     const [surahList, setSurahList] = useState(null)
     const [audio, setAudio] = useState(null)
+    const store = useSelector(state => state.surahReducer)
+    console.log("surah_id:", store)
     console.log("audio", audio)
     const fetchData = async () => {
         const quran = new QuranKemenag();
@@ -76,39 +81,34 @@ const Recitation = () => {
                         </Menu.Item>
                     </Menu>
                 </Sider>
-                <Layout className="site-layout "  >
-                    <Header className="site-layout-background header" style={{ padding: 0 }}>
-                        {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />}
-                        <div className='titleContainer'>
-                            <img src={quranWord} className="title" />
-                            <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>
-                        </div>
-                    </Header>
-                    <Content
-                        className="site-layout-background content"
-                        style={{
-                            // margin: '24px 16px',
-                            padding: 24,
-                            minHeight: 280,
-                        }}
-                    >
-                        {surahList?.map(({ surah_id, surah_name, surah_name_arabic, surah_verse_count }) => (
-                            <div className='surah' key={surah_id}>
-                                <div className='align__center' style={{ gap: "10px" }}>
-                                    <div className='center circle'>{surah_id}</div>
-                                    <p className='text'>{surah_name}</p>
-                                </div>
-                                <div style={{ display: "flex", flexDirection: "column", alignItems: 'flex-end' }}>
-                                    <p className='text'>{surah_name_arabic}</p>
-                                    <p className='text'>{surah_verse_count}</p>
-                                </div>
+                {store.id ? <Verses id={store.id} />
+                    : <Layout className="site-layout "  >
+                        <Header
+                            className="site-layout-background header"
+                            style={{ padding: 0 }}>
+                            {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />}
+                            <div className='titleContainer'>
+                                <img src={quranWord} className="title" />
+                                <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>
                             </div>
-                        ))}
-                    </Content>
-                    {/* <Footer className='footer'>
+                        </Header>
+                        <Content
+                            className="site-layout-background content"
+                            style={{
+                                // margin: '24px 16px',
+                                padding: 24,
+                                minHeight: 280,
+                            }}
+                        >
+                            {surahList?.map((value) => (
+                                <Surah value={value} key={value.surah_id} />
+                            ))}
+                        </Content>
+                        {/* <Footer className='footer'>
 
                     </Footer> */}
-                </Layout>
+                    </Layout>
+                }
             </Layout>
         </ReciteStyle>
     )

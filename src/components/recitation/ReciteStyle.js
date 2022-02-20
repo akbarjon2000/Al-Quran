@@ -4,6 +4,7 @@ export const ReciteStyle = styled.div`
 display:flex;
 width:100%;
 height:fit-content !important;
+overflow:auto !important;
 .layout{
     width:100% !important;
     height:fit-content !important;
@@ -16,6 +17,7 @@ height:fit-content !important;
     font-size:25px;
     margin-left:10px;
     margin-top:10px;
+    position:fixed;
 }
 .header{
     display:flex;
@@ -46,7 +48,7 @@ background-color:inherit;
 }
 .content{
     width:100%;
-    height:max-content;
+    height:100vh;
     display:flex;
     flex-direction:row;
     align-items:center;
@@ -55,16 +57,17 @@ background-color:inherit;
     column-gap:20px;
     row-gap:10px;
   grid: auto-flow / 200px;
-
+/* margin-bottom:500px; */
 }
 .surah{
     display:flex;
     align-items:center;
 padding:10px;
 justify-content:space-between;
+ cursor: pointer;
 }
 .site-layout{
-    overflow:scroll !important;
+      overflow:auto !important;
     width:100%;
     height:max-content;
 }
