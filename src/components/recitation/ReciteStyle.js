@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const ReciteStyle = styled.div`
 display:flex;
-width:100%;
+/* width:100%; */
 height:fit-content !important;
 overflow:auto !important;
 .layout{
-    width:100% !important;
+    /* width:100% !important; */
     height:fit-content !important;
 }
 .sider{
@@ -22,7 +22,7 @@ overflow:auto !important;
 .header{
     display:flex;
     flex-direction:row;
-    width:100%;
+    /* width:100%; */
     height:fit-content;
     padding:0;
 background-color:inherit;
@@ -47,7 +47,7 @@ background-color:inherit;
     border-radius:5px;
 }
 .content{
-    width:100%;
+    /* width:100%; */
     height:100vh;
     display:flex;
     flex-direction:row;

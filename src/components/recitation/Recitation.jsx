@@ -67,7 +67,7 @@ const Recitation = () => {
     return (
         <ReciteStyle>
             <Layout className='layout' style={{ minHeight: '100px' }} >
-                <Sider trigger={null} collapsible collapsed={close} reverseArrow={false} className="sider">
+                {/* <Sider trigger={null} inCollapsible collapsed={close} reverseArrow={false} className="sider">
                     <div className="logo" />
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                         <Menu.Item key="1" icon={<UserOutlined />}>
@@ -80,13 +80,13 @@ const Recitation = () => {
                             nav 3
                         </Menu.Item>
                     </Menu>
-                </Sider>
+                </Sider> */}
                 {store.id ? <Verses id={store.id} />
                     : <Layout className="site-layout "  >
                         <Header
                             className="site-layout-background header"
                             style={{ padding: 0 }}>
-                            {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />}
+                            {/* {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />} */}
                             <div className='titleContainer'>
                                 <img src={quranWord} className="title" />
                                 <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>

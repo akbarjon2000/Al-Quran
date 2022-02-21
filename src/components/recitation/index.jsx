@@ -1,6 +1,6 @@
 import React from 'react'
 import Recitation from './Recitation'
-import ReciteSidebar from './sidebar/ReciteSidebar'
+import ReciteSidebar from '../sidebar/Sidebar'
 
 const index = () => {
     return (

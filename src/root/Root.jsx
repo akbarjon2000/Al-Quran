@@ -1,26 +1,19 @@
 import React, { useContext } from 'react'
-import LandingPage from '../components/landing page/LandingPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { StartContext } from "../context/startContext";
 import Recitation from '../components/recitation';
-import Navbar from '../components/navbar/Navbar';
+import Sidebar from '../components/sidebar/Sidebar';
 function Root() {
     const [start, setStart] = useContext(StartContext);
     return (
-
-        <BrowserRouter>
-            {
-                start ?
-                    <div>
-                        <Navbar />
-                        <Routes>
-                            <Route path="/recitation" element={<Recitation />} />
-                        </Routes>
-                    </div>
-                    :
-                    <LandingPage />
-            }
-        </BrowserRouter>
+        <div style={{ display: "flex" }}>
+            <BrowserRouter>
+                <Sidebar />
+                <Routes>
+                    <Route path="/recitation" element={<Recitation />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
 
     )
 }
