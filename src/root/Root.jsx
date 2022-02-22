@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { StartContext } from "../context/startContext";
-import Recitation from '../components/recitation';
+import Recitation from '../components/recitation/Recitation';
 import Sidebar from '../components/sidebar/Sidebar';
 function Root() {
     const [start, setStart] = useContext(StartContext);

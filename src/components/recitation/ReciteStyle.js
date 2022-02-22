@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const ReciteStyle = styled.div`
 display:flex;
-/* width:100%; */
+width:100%;
 height:fit-content !important;
 overflow:auto !important;
 .layout{
-    /* width:100% !important; */
-    height:fit-content !important;
+    /* width:50%; */
+    height:100%;
 }
 .sider{
     height:100vh;
@@ -65,11 +65,6 @@ background-color:inherit;
 padding:10px;
 justify-content:space-between;
  cursor: pointer;
-}
-.site-layout{
-      overflow:auto !important;
-    width:100%;
-    height:max-content;
 }
 .circle{
     width:30px;
