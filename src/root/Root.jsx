@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { StartContext } from "../context/startContext";
 import Recitation from '../components/recitation/Recitation';
 import Sidebar from '../components/sidebar/Sidebar';
+import { sidebarObj } from '../utils/sidebar';
+import Surah from '../components/recitation/Surah';
+
 function Root() {
     const [start, setStart] = useContext(StartContext);
     return (
@@ -10,7 +13,9 @@ function Root() {
             <BrowserRouter>
                 <Sidebar />
                 <Routes>
-                    <Route path="/recitation" element={<Recitation />} />
+                    {sidebarObj.map(({ path, Component }) => (
+                        <Route path={path} element={<Component />} />
+                    ))}
                 </Routes>
             </BrowserRouter>
         </div>

@@ -8,7 +8,7 @@ const Surah = ({ value }) => {
     const chooseSurah = (surah_id) => {
         // navigate(`/surah`);
         dispatch({
-            type: "MOVE", payload: { id: surah_id }
+            type: "MOVE", payload: { id: surah_id, smth: "smth" }
         })
     }
     // const { surah_id, surah_name, surah_name_arabic, surah_verse_count } = value;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ReciteStyle } from './ReciteStyle';
+import { ReadStyle } from './ReadStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios"
 import QuranKemenag from "quran-kemenag";
@@ -15,10 +15,10 @@ import 'antd/dist/antd.css'
 
 import quranWord from "../../assets/images/quranulkarim.png";
 import Surah from './Surah';
-import Verses from './verses/ReciteVerses';
+import Verses from './verses/Verses';
 
 const { Header, Sider, Content, Footer } = Layout;
-const Recitation = () => {
+const Read = () => {
     const [close, setClose] = useState(false)
     const [surah, setSurah] = useState(null);
     const [surahList, setSurahList] = useState(null)
@@ -65,7 +65,7 @@ const Recitation = () => {
         setClose(!close)
     };
     return (
-        <ReciteStyle>
+        <ReadStyle>
             {store.id ? <Verses id={store.id} />
                 : <Layout className="site-layout "  >
                     <Header
@@ -94,8 +94,8 @@ const Recitation = () => {
                     </Footer> */}
                 </Layout>
             }
-        </ReciteStyle>
+        </ReadStyle>
     )
 }
 
-export default Recitation
+export default Read
