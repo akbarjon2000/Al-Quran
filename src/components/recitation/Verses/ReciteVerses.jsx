@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container } from './VersesStyle'
+import { Container } from './ReciteVercesStyle'
 import { Layout, } from 'antd'
 import QuranKemenag from "quran-kemenag";
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,13 +10,13 @@ import {
     VideoCameraOutlined,
     UploadOutlined,
 } from '@ant-design/icons';
-import { AiOutlineHome } from "react-icons/ai";
-import ayahNumBack from "../../../assets/images/ayahNumBack.png"
+import { BiArrowBack } from "react-icons/bi";
+import ayahNumBack from "../../../assets/images/num_bg.png"
 import axios from 'axios';
 const { Header, Content, Footer } = Layout;
 
 
-const ReciteVerses = () => {
+const ReciteVerses = ({ id }) => {
     const [close, setClose] = useState(false)
     const [sura, setSura] = useState(null);
     const store = useSelector(store => store.surahReducer);
@@ -33,9 +33,9 @@ const ReciteVerses = () => {
     };
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/1`)
-            console.log(data)
-            setSura(data);
+            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/${id}`)
+            console.log(data.data)
+            setSura(data.data);
         } catch (error) {
             console.log(error);
         }
@@ -47,35 +47,35 @@ const ReciteVerses = () => {
 
     return (
         <Container>
-            <Layout className="site-layout ">
-                {/* <Header
-                    className="site-layout-background header"
+            <Layout >
+                <Header
+                    className=" header"
                     style={{ padding: 0 }}>
-                    {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />}
-                    <div className='titleContainer'>
-                        <h1 style={{ fontSize: "3rem", color: "#00acc2" }}>{sura?.surah_name}</h1>
-                        <p className='arabic_name'>{sura?.surah_verse_count} verses</p>
-                    </div>
-                    <AiOutlineHome className='home' onClick={goHome} />
+
+                    <BiArrowBack className='home' onClick={goHome} />
+                    <h1 style={{ fontSize: "3rem", color: "#F7B801", margin: "0 auto" }}>{sura?.name.transliteration.en}</h1>
+
                 </Header>
                 <Content
-                    className="site-layout-background content"
+                    className=" content"
                     style={{
                         // margin: '24px 16px',
                         padding: 24,
                         minHeight: 280,
                     }}>
                     {sura?.verses.map((verse, index) => (
-                        <div className='oyahDiv'>
+                        <div className='align__center oyahDiv'>
+                            <p style={{ display: "flex", justifyContent: "flex-end" }}>{verse.text.arab}</p>
                             <div>
                                 <div style={{ backgroundImage: `url(${ayahNumBack})` }} className="center ayahNumBack">{index + 1}</div>
-
                             </div>
-                            <p style={{ display: "flex", justifyContent: "flex-end" }}>{verse.verse_arabic}</p>
-                            <p>{verse.verse_bahasa}</p>
+                            {/* <p>{verse.verse_bahasa}</p> */}
                         </div>
                     ))}
-                </Content> */}
+                </Content>
+                <Footer className='footer'>
+
+                </Footer>
             </Layout>
         </Container>
     )

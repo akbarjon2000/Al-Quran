@@ -9,7 +9,7 @@ import Surah from '../components/recitation/Surah';
 function Root() {
     const [start, setStart] = useContext(StartContext);
     return (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", height: "100%" }}>
             <BrowserRouter>
                 <Sidebar />
                 <Routes>

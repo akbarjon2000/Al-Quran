@@ -2,10 +2,14 @@ import React from 'react'
 import { Container } from './SidebarStyle'
 import { sidebarObj } from '../../utils/sidebar'
 import { Link, NavLink } from "react-router-dom"
+import { FiMenu } from "react-icons/fi";
 const Sidebar = () => {
     return (
         <Container>
-            <p className='title'>Love Quran</p>
+            <div>
+                <p className='title'>Love Quran</p>
+                <FiMenu className="menu" />
+            </div>
             <div className='devider'></div>
             {
                 sidebarObj.map(({ icon: Icon, title, path, id, devider }) => (

@@ -3,11 +3,15 @@ import styled from 'styled-components';
 export const ReciteStyle = styled.div`
 display:flex;
 width:100%;
-height:fit-content !important;
-overflow:auto !important;
+height:100% ;
+
 .layout{
     /* width:50%; */
     height:100%;
+}
+.site-layout{
+    overflow:auto;
+    height:max-content;
 }
 .sider{
     height:100vh;
@@ -81,4 +85,5 @@ justify-content:space-between;
     height:500px;
     width:100%;
 }
+
 `
