@@ -10,7 +10,7 @@ height:100%;
 ${media.phone}{
     display:none;
 }
-.site-layout{
+.layout{
     width:100%;
     height:100vh !important;
     /* overflow-y:auto; */
@@ -56,7 +56,7 @@ color: #00acc2;
 background-image:url("./listenQuran.jpg");
 background-size:cover;
 /* opacity:0.5; */
-height:400px;
+height:550px;
 overflow-y:auto !important;
 }
 .ayahNumBack{
@@ -77,9 +77,49 @@ color:white;
 }
 .footer{
     width:100%;
-    /* height:100%; */
-    border:1px solid red;
+    /* border:1px solid red; */
+    height:150px;
     background-image:url("./bg.jpg");
     background-size: cover;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+    gap:20px;
+    
+}
+.controls{
+font-size:60px;
+color:#000;
+/* color:white; */
+text-align:center;
+height:fit-content;
+gap:10px;
+}
+.btn{
+    cursor: pointer;
+}
+/* .slider::-webkit-slider-runnable-track{
+    width:500px;
+    background-color:red;
+} */
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+ height: 15px;
+ width: 15px;
+ background: red;
+ border-radius: 50%;
+}
+.slider{
+    -webkit-appearance:none;
+    width:80%;
+    margin:0 auto !important;
+    border-radius:10px;
+    height:8px;
+    &:focus{
+        outline:none;
+    }
+
 }
 `

@@ -5,7 +5,7 @@ import { MdGTranslate, MdLanguage, MdSettings, MdDeveloperMode } from "react-ico
 //Components:
 import Read from "../components/read/Read";
 import Recitation from "../components/recitation/Recitation";
-
+import Translation from "../components/translation/Translation";
 
 export const sidebarObj = [
     {
@@ -26,7 +26,7 @@ export const sidebarObj = [
         id: 3,
         title: "Translation",
         icon: MdGTranslate,
-        Component: '',
+        Component: Translation,
         path: "translation",
         devider: true
     },

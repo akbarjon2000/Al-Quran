@@ -13,8 +13,8 @@ function Root() {
             <BrowserRouter>
                 <Sidebar />
                 <Routes>
-                    {sidebarObj.map(({ path, Component }) => (
-                        <Route path={path} element={<Component />} />
+                    {sidebarObj.map(({ path, Component, id }) => (
+                        <Route key={id} path={path} element={<Component />} />
                     ))}
                 </Routes>
             </BrowserRouter>

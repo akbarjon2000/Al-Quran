@@ -4,13 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios"
 import QuranKemenag from "quran-kemenag";
 import { Layout, Menu } from 'antd';
-import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-} from '@ant-design/icons';
 import 'antd/dist/antd.css'
 
 import quranWord from "../../assets/images/quranulkarim.png";
@@ -24,8 +17,8 @@ const Recitation = () => {
     const [surahList, setSurahList] = useState(null)
     const [audio, setAudio] = useState(null)
     const store = useSelector(state => state.surahReducer)
-    console.log("surah_id:", store)
-    console.log("audio", audio)
+    // console.log("surah_id:", store)
+    // console.log("audio", audio)
     const fetchData = async () => {
         const quran = new QuranKemenag();
         quran.getListSurah(
@@ -33,7 +26,7 @@ const Recitation = () => {
         )
             .then((data) => {
                 setSurahList(data)
-                console.log(data)
+                // console.log(data)
                 // data handling here
             })
             .catch((error) => {
@@ -50,8 +43,8 @@ const Recitation = () => {
         )
             .then((data) => {
                 setSurah(data);
-                console.log(data)
-                setAudio(data.verses[0].verse_audio)
+                // console.log(data)
+                // setAudio(data.verses[0].verse_audio)
 
             })
             .catch((error) => {

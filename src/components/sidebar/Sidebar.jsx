@@ -13,10 +13,10 @@ const Sidebar = () => {
             <div className='devider'></div>
             {
                 sidebarObj.map(({ icon: Icon, title, path, id, devider }) => (
-                    <>
+                    <div key={id}>
 
                         <NavLink
-                            key={id}
+
                             to={path}
                             className='align__center catalog'
                         >
@@ -24,7 +24,7 @@ const Sidebar = () => {
                             <p>{title}</p>
                         </NavLink>
                         {devider && <div className='devider'></div>}
-                    </>
+                    </div>
                 ))
             }
 
