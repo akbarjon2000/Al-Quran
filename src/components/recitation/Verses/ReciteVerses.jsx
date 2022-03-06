@@ -81,6 +81,16 @@ const ReciteVerses = ({ id }) => {
         console.log(audioPlayer.current.isplaying);
     }
 
+    const calculateTime = (secs) => {
+        const minutes = Math.floor(secs / 60);
+        const returnedMins = minutes < 10 ? `0${minutes}` : minutes;
+        const seconds = Math.floor(secs % 60);
+        const returnedSecs = seconds < 10 ? `0${seconds}` : "seconds";
+        return `${returnedMins}:${returnedSecs}`;
+
+
+    }
+
     useEffect(() => {
         fetchData();
     }, [])
@@ -95,6 +105,8 @@ const ReciteVerses = ({ id }) => {
         console.log('seconds', seconds)
         progressbarRef.current.max = seconds;
     }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState])
+
+
     // const { surah_name, surah_name_arabic, surah_verse_count, verses } = sura;
 
     return (
@@ -111,7 +123,6 @@ const ReciteVerses = ({ id }) => {
                 <Content
                     className=" content"
                     style={{
-                        // margin: '24px 16px',
                         padding: 24,
                         minHeight: 280,
                     }}>
@@ -121,7 +132,6 @@ const ReciteVerses = ({ id }) => {
                             <div>
                                 <div style={{ backgroundImage: `url(${ayahNumBack})` }} className="center ayahNumBack">{index + 1}</div>
                             </div>
-                            {/* <p>{verse.verse_bahasa}</p> */}
                         </div>
                     ))}
                 </Content>
@@ -135,11 +145,11 @@ const ReciteVerses = ({ id }) => {
                         <IoPlayForwardSharp className="btn" />
                         <MdForward10 style={{ fontSize: "50px" }} className="btn" onClick={test} />
                     </div>
-                    <audio ref={audioPlayer} src={audio} autoPlay loop={true} muted={false} />
+                    <audio ref={audioPlayer} src={audio} autoPlay loop={false} muted={false} preload="metadata" />
                     <div style={{ width: "100%" }} className="center" >
-                        <p>{timeCalculator(currentTime)}</p>
+                        <p>{calculateTime(currentTime)}</p>
                         <input type="range" className='slider' ref={progressbarRef} />
-                        <p>{duration}</p>
+                        <p>{(duration && !NaN(duration)) && calculateTime(duration)}</p>
                     </div>
                 </Footer>
             </Layout>
