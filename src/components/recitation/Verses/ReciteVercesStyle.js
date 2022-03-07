@@ -11,7 +11,7 @@ ${media.phone}{
     display:none;
 }
 .layout{
-    width:100%;
+    width:100% !important;
     height:100vh !important;
     /* overflow-y:auto; */
 }
@@ -58,7 +58,19 @@ background-size:cover;
 /* opacity:0.5; */
 height:550px;
 overflow-y:auto !important;
+/* background-color:rgba(255,255,255,1) !important; */
+filter:brightness(90%);
+/* z-index:-1; */
 }
+
+/* .content::before{
+    content:"";
+background-image:url("./listenQuran.jpg");
+background-size:cover;
+background-color:rgba(0,0,0,0.25);
+position:absolute;
+
+} */
 .ayahNumBack{
     width: 40px;
     height:40px;
@@ -86,16 +98,18 @@ color:white;
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-    gap:20px;
+    gap:5px;
     
 }
 .controls{
 font-size:60px;
 color:#000;
-/* color:white; */
+width:100%;
+color:#000;
 text-align:center;
 height:fit-content;
 gap:10px;
+margin-bottom:0;
 }
 .btn{
     cursor: pointer;
@@ -112,14 +126,80 @@ gap:10px;
  border-radius: 50%;
 }
 .slider{
+    cursor: pointer;
+    --seek-before-width: 0;
     -webkit-appearance:none;
     width:80%;
-    margin:0 auto !important;
+    margin:0 !important;
     border-radius:10px;
     height:8px;
+ 
     &:focus{
         outline:none;
     }
+    &::before{
+        content:"";
+        height:11px;
+        width:var(--seek-before-width);
+        background-color:pink !important;
+        /* border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;  
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px; */
+        border-radius:10px;
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+}
+    }
+    .sliderControls{
+        gap:15px;
+        margin-top:0;
+    }
+.sliderControls > p{
+    color:white;
+}
+.repeatbtn{
+    position:absolute;
+    right:10px;
+    /* top : 10px; */
+    font-size:40px;
+    cursor:pointer;
+    color:white;
+    &:hover{
+        color:#dbff00;
+    }
+    color: ${({ loop }) => loop ? "#dbff00" : "white"}
+}
+.speedbtn{
+      position:relative;
+    /* left:10px; */
+    /* top : 10px; */
+    font-size:50px;
+    cursor:pointer;
+    color:white;
+    &:hover{
+        color:#dbff00;
+    }
+    color: ${({ loop }) => loop ? "#dbff00" : "white"}
+  
+}
+.speedModal{
+    width:80px;
+    height:200px;
+    border-radius:10px;
+    position:absolute;
+    background-color:#fff;
+    display:${({ showModal }) => showModal ? "flex" : "none"};
+    flex-direction:column;
+    padding:5px;
+    bottom:50px;
+    left:550px;
 
+}
+
+.label{
+    gap:5px;
+    cursor: pointer;
 }
 `
