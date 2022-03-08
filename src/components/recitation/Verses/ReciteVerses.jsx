@@ -22,9 +22,10 @@ const ReciteVerses = ({ id }) => {
     const [duration, setDuration] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
     const [showModal, setShowModal] = useState(false);
+    const [ended, setEnded] = useState(null)
     const [controls, setControls] = useState({
         loop: false,
-        speed: 1
+        speed: 1,
     })
     const [speed, setSpeed] = useState({
         half: false,
@@ -131,7 +132,7 @@ const ReciteVerses = ({ id }) => {
     // }
 
     const getSpeed = () => {
-        setShowModal(true)
+        setShowModal(!showModal)
     }
     const handleSpeed = ({ target }) => {
         setShowModal(false)
@@ -142,13 +143,17 @@ const ReciteVerses = ({ id }) => {
 
     }
 
+    const handleOnEnd = () => {
+        setSurahId(surahid + 1);
+        const chosenAudio = sura?.verses[surahid]?.audio?.primary;
+        setAudio(chosenAudio);
+        setIsPlaying(false);
+    }
+
     useEffect(() => {
         fetchData();
     }, [])
     console.log("surahid:", surahid)
-    // useEffect(() => {
-    //     endedAudio();
-    // }, [audioPlayer?.current?.ended])
 
     useEffect(() => {
         const seconds = Math.floor(audioPlayer.current.duration);
@@ -156,11 +161,6 @@ const ReciteVerses = ({ id }) => {
         console.log('seconds', seconds)
         progressbarRef.current.max = seconds;
     }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState, surahid])
-    useEffect(() => {
-        if (audioPlayer.current.ended) {
-            setIsPlaying(false);
-        }
-    }, [audioPlayer?.current?.ended])
 
     const { half, threeforth, one, onetventyfive, onehalf } = speed;
 
@@ -218,16 +218,16 @@ const ReciteVerses = ({ id }) => {
 
                             </div>
                         </div>
-                        <MdReplay10 style={{ fontSize: "50px" }} className="btn" onClick={backTen} />
+                        <MdReplay10 style={{ fontSize: "50px" }} className="btn backforward10" onClick={backTen} />
                         <IoPlayBackSharp className="btn" onClick={previousAyah} />
-                        {isPlaying ? <MdPlayCircleFilled style={{ fontSize: "80px" }} className="btn" onClick={togglePlayer} />
-                            : <MdPauseCircle style={{ fontSize: "80px" }} className="btn" onClick={togglePlayer} />
+                        {isPlaying ? <MdPlayCircleFilled style={{ fontSize: "80px" }} className="btn playPause" onClick={togglePlayer} />
+                            : <MdPauseCircle style={{ fontSize: "80px" }} className="btn playPause" onClick={togglePlayer} />
                         }
                         <IoPlayForwardSharp className="btn" onClick={nextAyah} />
-                        <MdForward10 style={{ fontSize: "50px" }} className="btn" onClick={forwardTen} />
+                        <MdForward10 style={{ fontSize: "50px" }} className="btn backforward10" onClick={forwardTen} />
                         <MdOutlineRepeatOne className="btn repeatbtn" onClick={() => setControls((prevState) => ({ ...prevState, loop: !controls.loop }))} />
                     </div>
-                    <audio ref={audioPlayer} src={audio} autoPlay loop={controls.loop} muted={false} preload="metadata" />
+                    <audio onEnded={handleOnEnd} ref={audioPlayer} src={audio} autoPlay loop={controls.loop} muted={false} preload="metadata" />
                     <div style={{ width: "100%" }} className="center sliderControls" >
                         <p>{calculateTime(currentTime)}</p>
                         <input type="range" className='slider' ref={progressbarRef} defaultValue="0" onChange={onProgressChange} />

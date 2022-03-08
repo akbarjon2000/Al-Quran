@@ -113,6 +113,28 @@ margin-bottom:0;
 }
 .btn{
     cursor: pointer;
+            font-size:40px;
+    cursor:pointer;
+    color:white;
+    &:hover{
+        color:#dbff00;
+    }
+
+}
+.backforward10{
+        font-size:40px;
+    cursor:pointer;
+    color:white;
+    &:hover{
+        color:#dbff00;
+    }
+}
+.playPause{
+     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4),
+      -4px -4px 10px rgba(255, 255, 255, 0.4),
+       inset -4px -4px 10px rgba(0, 0, 0, 0.4), 
+       inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+    border-radius:50%;
 }
 /* .slider::-webkit-slider-runnable-track{
     width:500px;
@@ -133,22 +155,18 @@ margin-bottom:0;
     margin:0 !important;
     border-radius:10px;
     height:8px;
- 
+
     &:focus{
         outline:none;
     }
     &::before{
         content:"";
         height:11px;
-        width:var(--seek-before-width);
+        width:var(--seek-before-width) !important;
         background-color:pink !important;
-        /* border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;  
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 10px; */
         border-radius:10px;
         position: absolute;
-        z-index: 2;
+        z-index: 5;
         cursor: pointer;
 }
     }
@@ -181,12 +199,13 @@ margin-bottom:0;
     &:hover{
         color:#dbff00;
     }
-    color: ${({ loop }) => loop ? "#dbff00" : "white"}
-  
+
+    /* margin-right:5px; */
+ 
 }
 .speedModal{
     width:80px;
-    height:200px;
+    height:170px;
     border-radius:10px;
     position:absolute;
     background-color:#fff;
