@@ -5,6 +5,10 @@ display:flex;
 width:100%;
 height:fit-content !important;
 overflow:auto !important;
+.site-layout{
+    /* background-color:rgba(255,238,50, 0.1); */
+    background-color:#fff2b2;
+}
 .layout{
     /* width:50%; */
     height:100%;
@@ -52,11 +56,14 @@ background-color:inherit;
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-end;
     flex-wrap:wrap;
-    column-gap:20px;
+
     row-gap:10px;
-  grid: auto-flow / 200px;
+    /* background-color:rgba(255,238,50, 0.1); */
+    background-color:#fff2b2;
+
+
 /* margin-bottom:500px; */
 }
 .surah{

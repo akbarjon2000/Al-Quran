@@ -4,15 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios"
 import QuranKemenag from "quran-kemenag";
 import { Layout, Menu } from 'antd';
-import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-} from '@ant-design/icons';
 import 'antd/dist/antd.css'
-
 import quranWord from "../../assets/images/quranulkarim.png";
 import Surah from './Surah';
 import Verses from './verses/Verses';
@@ -55,15 +47,12 @@ const Read = () => {
 
             })
             .catch((error) => {
-                // error handing here
+                console.log(error)
             })
     }
     useEffect(() => {
         fetchData();
     }, [])
-    const toggle = () => {
-        setClose(!close)
-    };
     return (
         <ReadStyle>
             {store.id ? <Verses id={store.id} />
@@ -71,7 +60,6 @@ const Read = () => {
                     <Header
                         className="site-layout-background header"
                         style={{ padding: 0 }}>
-                        {/* {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />} */}
                         <div className='titleContainer'>
                             <img src={quranWord} className="title" />
                             <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>

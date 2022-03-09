@@ -62,10 +62,8 @@ const Verses = () => {
                 <Header
                     className="site-layout-background header"
                     style={{ padding: 0 }}>
-                    {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />}
                     <div className='titleContainer'>
-                        <h1 style={{ fontSize: "3rem", color: "#00acc2" }}>{sura?.surah_name}</h1>
-                        <p className='arabic_name'>{sura?.surah_verse_count} verses</p>
+                        <h1 style={{ fontSize: "3rem", color: "#F7B801" }}>{sura?.surah_name}</h1>
                     </div>
                     <AiOutlineHome className='home' onClick={goHome} />
                 </Header>
