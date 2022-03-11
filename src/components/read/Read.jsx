@@ -77,9 +77,6 @@ const Read = () => {
                             <Surah value={value} key={value.surah_id} />
                         ))}
                     </Content>
-                    {/* <Footer className='footer'>
-
-                    </Footer> */}
                 </Layout>
             }
         </ReadStyle>

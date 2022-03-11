@@ -3,14 +3,17 @@ import styled from 'styled-components';
 export const ReadStyle = styled.div`
 display:flex;
 width:100%;
-height:fit-content !important;
+height:100vh;
 overflow:auto !important;
+background-color:#f0f2f5;
+
 .site-layout{
     /* background-color:rgba(255,238,50, 0.1); */
-    background-color:#fff2b2;
+    /* background-color:inherit; */
+
 }
-.layout{
-    /* width:50%; */
+/* .layout{
+    width:50%;
     height:100%;
 }
 .sider{
@@ -22,7 +25,7 @@ overflow:auto !important;
     margin-left:10px;
     margin-top:10px;
     position:fixed;
-}
+} */
 .header{
     display:flex;
     flex-direction:row;
@@ -52,16 +55,18 @@ background-color:inherit;
 }
 .content{
     /* width:100%; */
-    height:100vh;
+    height:100%;
     display:flex;
     flex-direction:row;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:center;
     flex-wrap:wrap;
-
     row-gap:10px;
+    column-gap:10px;
+padding-bottom:50px !important;
+
     /* background-color:rgba(255,238,50, 0.1); */
-    background-color:#fff2b2;
+    /* background-color:#fff2b2; */
 
 
 /* margin-bottom:500px; */

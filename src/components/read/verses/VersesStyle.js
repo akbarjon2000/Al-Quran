@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 width:100%;
-    /* overflow-y:scroll; */
+height:100vh;
 
 .titleContainer{
     font-family: 'Courgette', cursive;
@@ -45,7 +45,7 @@ color: #00acc2;
     flex-direction:column;
     justify-content:flex-start;
     align-items:flex-end;
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 
 }
 .ayahNumBack{
