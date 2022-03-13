@@ -7,7 +7,7 @@ const media = {
 }
 export const Container = styled.div`
 
-   width:350px;
+   width:300px;
    height:100vh;
    background-color:#03045E;
    ${media.phone}{

@@ -127,10 +127,6 @@ const ReciteVerses = ({ id }) => {
         onProgressChange();
     }
 
-    // const endedAudio = () => {
-    //     console.log("is ended:", audioPlayer?.current?.ended)
-    // }
-
     const getSpeed = () => {
         setShowModal(!showModal)
     }

@@ -178,8 +178,8 @@ margin-bottom:0;
     color:white;
 }
 .repeatbtn{
-    position:absolute;
-    right:10px;
+    /* position:absolute;
+    right:10px; */
     /* top : 10px; */
     font-size:40px;
     cursor:pointer;
@@ -213,7 +213,7 @@ margin-bottom:0;
     flex-direction:column;
     padding:5px;
     bottom:50px;
-    left:550px;
+    left:500px;
 
 }
 
