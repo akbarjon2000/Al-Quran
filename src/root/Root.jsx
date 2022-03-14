@@ -16,6 +16,7 @@ function Root() {
                     {sidebarObj.map(({ path, Component, id }) => (
                         <Route key={id} path={path} element={<Component />} />
                     ))}
+                    <Route index element={<Recitation />} />
                 </Routes>
             </BrowserRouter>
         </div>

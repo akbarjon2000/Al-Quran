@@ -64,7 +64,7 @@ const Verses = ({ id }) => {
                             <div style={{ backgroundImage: `url(${ayahNumBack})`, }} className="center ayahNumBack">{index + 1}</div>
                             <p className="ayahText"> {verse.text.arab}</p>
                         </div>
-                        <div style={{ paddingLeft: "40px" }}>
+                        <div style={{ paddingLeft: "60px" }}>
                             <p className='transliteration'>{verse.text.transliteration.en}</p>
                             <p className='translation'>{verse.translation.en}</p>
                         </div>

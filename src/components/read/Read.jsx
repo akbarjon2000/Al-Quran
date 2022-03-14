@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { ReadStyle } from './ReadStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from "axios"
 import QuranKemenag from "quran-kemenag";
-import { Layout, Menu } from 'antd';
-import 'antd/dist/antd.css'
 import quranWord from "../../assets/images/quranulkarim.png";
 import Surah from './Surah';
 import Verses from './verses/Verses';
 
-const { Header, Sider, Content, Footer } = Layout;
 const Read = () => {
-    const [close, setClose] = useState(false)
     const [surah, setSurah] = useState(null);
     const [surahList, setSurahList] = useState(null)
     const [audio, setAudio] = useState(null)
@@ -56,17 +51,17 @@ const Read = () => {
     return (
         <ReadStyle>
             {store.id ? <Verses id={store.id} />
-                : <Layout className="site-layout "  >
-                    <Header
-                        className="site-layout-background header"
+                : <div className="site-layout "  >
+                    <div
+                        className=" header"
                         style={{ padding: 0 }}>
                         <div className='titleContainer'>
                             <img src={quranWord} className="title" />
-                            <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>
+                            <h1 style={{ fontSize: "30px", color: "#00acc2", marginTop: "10px" }}>True Islam</h1>
                         </div>
-                    </Header>
-                    <Content
-                        className="site-layout-background content"
+                    </div>
+                    <div
+                        className="content"
                         style={{
                             // margin: '24px 16px',
                             padding: 24,
@@ -76,8 +71,8 @@ const Read = () => {
                         {surahList?.map((value) => (
                             <Surah value={value} key={value.surah_id} />
                         ))}
-                    </Content>
-                </Layout>
+                    </div>
+                </div>
             }
         </ReadStyle>
     )

@@ -8,13 +8,8 @@ background-color:rgba(245,242,175,1);
 .titleContainer{
     font-family: 'Courgette', cursive;
     padding:0;
+}
 
-    padding-top:20px;
-}
-.site-layout{
-    width:100%;
-    /* overflow-y:auto; */
-}
 .trigger{
     &:hover{
         color:blue;
@@ -23,16 +18,22 @@ background-color:rgba(245,242,175,1);
 .header{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+    height:70px;
+    font-family: 'Courgette', cursive;
+    padding:0;
+    background-color:#005f73;
+    /* padding-top:20px; */
 }  
-.home{
+.back{
     position:fixed;
-    right:10px;
-    top:70px;
+margin-left:10px;
+color:white;
     font-size:30px;
     /* margin: 10px 10px 0 0; */
     cursor:pointer;
     &:hover{
-        color:blue;
+        color:#F7B801;
     }
 }
 .arabic_name{
@@ -47,8 +48,8 @@ color: #00acc2;
     justify-content:flex-start;
     align-items:flex-end;
     flex-wrap:wrap;
- 
-border-color:#FFEE32 !important;
+    height:100%;
+    border-color:#FFEE32 !important;
 }
 .ayahNumBack{
     width: 40px !important;
@@ -68,5 +69,48 @@ border-color:#FFEE32 !important;
     width:100%;
     text-align:end;
     margin:0;
+
+}
+.text{
+    margin:0 auto;
+    font-size:30px;
+    width:750px;
+    height:950px;
+    padding:110px;
+   font-family:  Arial;
+   text-align:end;
+   background-size:cover;
+}
+.pagination{
+    width:85%;
+    height:50px;
+    background-color:#9DD9D2;
+    position:fixed;
+    bottom:0;
+    gap:7px;
+}
+.paginateback{
+    font-size:20px;
+    cursor: pointer;
+    &:hover{
+        color:#147DF5;
+    }
+}
+.paginateforth{
+    font-size:20px;
+    cursor: pointer;
+
+    &:hover{
+        color:#147DF5;
+    }
+
+}
+.currentPage{
+width:70px;
+height:30px;
+background-color:#147DF5;
+color:white;
+border-radius:5px;
+cursor: pointer;
 }
 `

@@ -32,7 +32,7 @@ background-color:#005f73;
 color: #00acc2;
 }
 .content{
-   padding:10px !important;
+   padding:10px 0 10px 0 !important;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
@@ -44,7 +44,7 @@ background-size:cover;
 /* height:550px; */
 /* overflow-y:auto !important; */
     background-color:rgba(245,242,175,0.5);
-    overflow:auto;
+
 }
 .ayahNumBack{
     width: 40px !important;
@@ -54,8 +54,13 @@ background-size:cover;
 }
 .oyahDiv{
     display:flex;
-flex-direction:column;
-width:100%;
+    flex-direction:column;
+    padding:10px;
+    width:100%;
+    &:nth-child(even){
+        background-color:rgba(185, 251, 192, 0.5) ;
+        background-color:rgba(255, 221, 74, 0.3);
+    }
     /* flex-wrap:wrap; */
 }
 .Row1{

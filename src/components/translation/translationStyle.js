@@ -1,40 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display:flex;
-width:100%;
-height:100vh;
-overflow:hidden;
-background-color:#f0f2f5;
-
-.site-layout{
-    /* background-color:rgba(255,238,50, 0.1); */
-    /* background-color:inherit; */
-
-}
-/* .layout{
-    width:50%;
-    height:100%;
-}
-.sider{
+    display:flex;
+    width:100%;
     height:100vh;
-}
-.trigger{
-    width:25px !important;
-    font-size:25px;
-    margin-left:10px;
-    margin-top:10px;
-    position:fixed;
-} */
+    overflow:auto;
+    background-color:rgba(245,242,245,1) !important;
+
 .header{
     display:flex;
     flex-direction:row;
-    /* width:100%; */
     height:fit-content;
     padding:0;
-background-color:inherit;
-/* align-items:center; */
-/* margin-top:50px; */
+    background-color:inherit;
+
 }
 .titleContainer{
     width:100%;
@@ -54,7 +33,6 @@ background-color:inherit;
     border-radius:5px;
 }
 .content{
-    /* width:100%; */
     height:100%;
     display:flex;
     flex-direction:row;
@@ -63,20 +41,15 @@ background-color:inherit;
     flex-wrap:wrap;
     row-gap:10px;
     column-gap:10px;
-padding-bottom:50px !important;
+    padding-bottom:50px !important;
 
-    /* background-color:rgba(255,238,50, 0.1); */
-    /* background-color:#fff2b2; */
-
-
-/* margin-bottom:500px; */
 }
 .surah{
     display:flex;
     align-items:center;
-padding:10px;
-justify-content:space-between;
- cursor: pointer;
+    padding:10px;
+    justify-content:space-between;
+    cursor: pointer;
 }
 .circle{
     width:30px;
