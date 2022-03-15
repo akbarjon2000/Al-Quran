@@ -14,7 +14,7 @@ const { Header, Content, Footer } = Layout;
 
 
 const ReciteVerses = ({ id }) => {
-    // const [close, setClose] = useState(false)
+
     const [sura, setSura] = useState(null);
     const [audio, setAudio] = useState(sura?.verses[0]);
     const [surahid, setSurahId] = useState(0);
