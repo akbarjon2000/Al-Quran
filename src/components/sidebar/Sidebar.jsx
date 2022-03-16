@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './SidebarStyle'
+import { Container, Item } from './SidebarStyle'
 import { sidebarObj } from '../../utils/sidebar'
 import { Link, NavLink } from "react-router-dom"
 import { FiMenu } from "react-icons/fi";
@@ -14,11 +14,21 @@ const Sidebar = () => {
             {
                 sidebarObj.map(({ icon: Icon, title, path, id, devider }) => (
                     <div key={id}>
-
                         <NavLink
-
                             to={path}
-                            className='align__center catalog'
+                            className={({ isActive }) => isActive ? "align__center test" : "align__center catalog"}
+                            style={({ isActive }) => {
+                                return {
+                                    color: isActive ? 'white' : '#2D3A45',
+                                    textDecoration: "none",
+                                    backgroundColor: isActive ? "#0a9396 !important" : "#ae2012",
+
+
+                                    transition: 'all 0.3s',
+
+                                    width: '300px',
+                                }
+                            }}
                         >
                             <Icon />
                             <p>{title}</p>
@@ -29,7 +39,7 @@ const Sidebar = () => {
             }
 
 
-        </Container>
+        </Container >
     )
 }
 

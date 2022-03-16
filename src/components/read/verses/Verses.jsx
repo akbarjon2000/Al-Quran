@@ -12,9 +12,10 @@ const Verses = ({ id }) => {
     const [page, setPage] = useState(null);
     const [text, setText] = useState(sura?.verses.filter(verse => verse.meta.page === 1).map(value => value.text.arab).join(" "));
     const [pageLength, setPageLength] = useState(sura?.verses.length);
+    const [test, setTest] = useState(null);
     console.log("LENGTH:", pageLength)
     console.log(page)
-    console.log(text);
+    console.log("tsst", test);
 
     const store = useSelector(store => store.surahReducer);
     const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const Verses = ({ id }) => {
             setPage(data.data.verses[0].meta.page)
             setSura(data.data);
             // setText(data.data.verses.map((value, index) => value.text.arab + ` ${index + 1} `));
+            setTest(data.data.verses.filter(verse => verse.meta.page === page).map(value => value.text.arab))
             setText(data.data.verses.filter(verse => verse.meta.page === page).map(value => value.text.arab).join(" "))
             // console.log("text", text.join(" "));
             console.log(data.data);
@@ -88,10 +90,9 @@ const Verses = ({ id }) => {
                     padding: 24,
                     minHeight: 280,
                 }}>
-                {/* {text?.map((verse, index) => (
+                {/* {test?.map((verse, index) => (
                     <div className='oyahDiv'>
-                        <div style={{ backgroundImage: `url(${ayahNumBack})`, }} className="center ayahNumBack">{index + 1}</div>
-                        <span className="ayahText"> {index + 1}{verse}</span>
+                        <span className="ayahText"><div style={{ backgroundImage: `url(${ayahNumBack})`, }} className="center ayahNumBack">{index + 1}</div> {verse}</span>
                     </div>
                 ))} */}
                 <div className=' center text' style={{ backgroundImage: `url(${margin})` }}>{text}</div>

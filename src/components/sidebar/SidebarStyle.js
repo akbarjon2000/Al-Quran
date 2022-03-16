@@ -33,7 +33,9 @@ margin-bottom:10px !important;
    padding-left:20px;
    margin-top:10px;
    cursor:pointer;
+   /* border:1px solid; */
    background-color:${({ isActive }) => isActive ? "#007EA7" : "transparent"} !important;
+   color:${({ isActive }) => isActive ? "red" : "white"};
    
 }
 .menu{
@@ -45,4 +47,16 @@ margin-bottom:10px !important;
 
    }
 }
+.test{background-color:red;
+ height:60px;
+   font-size: 25px;
+   color: white;
+   gap: 10px;
+   padding-left:20px;
+   margin-top:10px;
+   cursor:pointer;}
+`
+
+export const Item = styled.div`
+
 `

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
 width:100%;
 background-color:rgba(245,242,175,1);
-    height:max-content;
+    height:100vh;
+    overflow:hidden;
 
 .titleContainer{
     font-family: 'Courgette', cursive;
@@ -49,7 +50,10 @@ color: #00acc2;
     align-items:flex-end;
     flex-wrap:wrap;
     height:100%;
+    width:100%;
     border-color:#FFEE32 !important;
+   overflow:scroll;
+
 }
 .ayahNumBack{
     width: 40px !important;
@@ -80,9 +84,11 @@ color: #00acc2;
    font-family:  Arial;
    text-align:end;
    background-size:cover;
+   margin-top:0;
+   /* flex-wrap:wrap; */
 }
 .pagination{
-    width:85%;
+    width:100%;
     height:50px;
     background-color:#9DD9D2;
     position:fixed;

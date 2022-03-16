@@ -37,7 +37,7 @@ const Read = () => {
         )
             .then((data) => {
                 setSurah(data);
-                console.log(data)
+                // console.log(data)
                 setAudio(data.verses[0].verse_audio)
 
             })
