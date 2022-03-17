@@ -19,9 +19,9 @@ const Sidebar = () => {
                             className={({ isActive }) => isActive ? "align__center test" : "align__center catalog"}
                             style={({ isActive }) => {
                                 return {
-                                    color: isActive ? 'white' : '#2D3A45',
+                                    // color: isActive ? 'white' : '#2D3A45',
                                     textDecoration: "none",
-                                    backgroundColor: isActive ? "#0a9396 !important" : "#ae2012",
+                                    // backgroundColor: isActive ? "#0a9396 !important" : "#ae2012",
 
 
                                     transition: 'all 0.3s',

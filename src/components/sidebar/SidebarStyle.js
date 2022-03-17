@@ -47,14 +47,26 @@ margin-bottom:10px !important;
 
    }
 }
-.test{background-color:red;
- height:60px;
+.test{
+   background-color:#007EA7;
+   height:60px;
    font-size: 25px;
    color: white;
    gap: 10px;
    padding-left:20px;
    margin-top:10px;
-   cursor:pointer;}
+   width:300px;
+   cursor:pointer;
+   position:relative;
+   &::after{
+      content:"";
+      width:10px;
+      background-color:#C1FFF2;
+      height:60px;
+      right: 0;
+      top: 0;
+   }
+   }
 `
 
 export const Item = styled.div`
