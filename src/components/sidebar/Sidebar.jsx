@@ -1,8 +1,10 @@
 import React from 'react'
 import { Container, Item } from './SidebarStyle'
 import { sidebarObj } from '../../utils/sidebar'
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { FiMenu } from "react-icons/fi";
+import { MdDeveloperMode } from "react-icons/md";
+
 const Sidebar = () => {
     return (
         <Container>
@@ -17,18 +19,6 @@ const Sidebar = () => {
                         <NavLink
                             to={path}
                             className={({ isActive }) => isActive ? "align__center test" : "align__center catalog"}
-                            style={({ isActive }) => {
-                                return {
-                                    // color: isActive ? 'white' : '#2D3A45',
-                                    textDecoration: "none",
-                                    // backgroundColor: isActive ? "#0a9396 !important" : "#ae2012",
-
-
-                                    transition: 'all 0.3s',
-
-                                    width: '300px',
-                                }
-                            }}
                         >
                             <Icon />
                             <p>{title}</p>
@@ -37,7 +27,9 @@ const Sidebar = () => {
                     </div>
                 ))
             }
-
+            <div className='aboutDev'>
+                <a href='https://portfolioakbarjon.netlify.app/' color='white' className='link'><MdDeveloperMode /> About Developer</a>
+            </div>
 
         </Container >
     )

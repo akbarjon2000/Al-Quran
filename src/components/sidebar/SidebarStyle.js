@@ -26,6 +26,8 @@ margin-bottom:10px !important;
    margin-top:10px;
 }
 .catalog{
+   text-decoration:none;
+   transition: all 0.3s;
    height:60px;
    font-size: 25px;
    color: white;
@@ -38,6 +40,19 @@ margin-bottom:10px !important;
    color:${({ isActive }) => isActive ? "red" : "white"};
    
 }
+.aboutDev{
+list-style:none;
+   transition: all 0.3s;
+   height:60px;
+   font-size: 25px;
+   gap: 10px;
+   padding-left:20px;
+   margin-top:10px;
+   cursor:pointer;
+}
+.link{
+   color:white;
+}
 .menu{
    font-size:20px;
    color:white;
@@ -48,6 +63,8 @@ margin-bottom:10px !important;
    }
 }
 .test{
+   text-decoration:none;
+   transition: all 0.3s;
    background-color:#007EA7;
    height:60px;
    font-size: 25px;

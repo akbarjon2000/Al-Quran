@@ -6,7 +6,7 @@ import { MdGTranslate, MdLanguage, MdSettings, MdDeveloperMode } from "react-ico
 import Read from "../components/read/Read";
 import Recitation from "../components/recitation/Recitation";
 import Translation from "../components/translation/Translation";
-
+import Setting from "../components/Settings/Setting";
 export const sidebarObj = [
     {
         id: 1,
@@ -37,28 +37,28 @@ export const sidebarObj = [
     //     Component: '',
     //     path: "home"
     // },
-    {
-        id: 5,
-        title: "Language",
-        icon: MdLanguage,
-        Component: '',
-        path: "language"
-    },
+    // {
+    //     id: 5,
+    //     title: "Language",
+    //     icon: MdLanguage,
+    //     Component: '',
+    //     path: "language"
+    // },
     {
         id: 6,
         title: "Settings",
         icon: MdSettings,
-        Component: '',
+        Component: Setting,
         path: "settings",
         devider: true
     },
-    {
-        id: 7,
-        title: "About Developer",
-        icon: MdDeveloperMode,
-        Component: '',
-        path: "about"
-    },
+    // {
+    //     id: 7,
+    //     title: "About Developer",
+    //     icon: MdDeveloperMode,
+    //     Component: '',
+    //     path: "about"
+    // },
 
 ]
 
