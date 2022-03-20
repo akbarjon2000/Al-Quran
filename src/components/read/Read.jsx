@@ -5,14 +5,26 @@ import QuranKemenag from "quran-kemenag";
 import quranWord from "../../assets/images/quranulkarim.png";
 import Surah from './Surah';
 import Verses from './verses/Verses';
-
+import { FiMenu } from "react-icons/fi"
 const Read = () => {
     const [surah, setSurah] = useState(null);
     const [surahList, setSurahList] = useState(null)
     const [audio, setAudio] = useState(null)
     const store = useSelector(state => state.surahReducer)
+    const toggler = useSelector(state => state.ToggleSidebar).toggle;
+    const dispatch = useDispatch();
+    console.log("toggle:", toggler)
     console.log("surah_id:", store)
     console.log("audio", audio)
+    console.log(document.body.style);
+
+    const handleToggle = () => {
+        dispatch({
+            type: "TOGGLE", payload: { toggle: true }
+        })
+        console.log(toggler)
+    }
+
     const fetchData = async () => {
         const quran = new QuranKemenag();
         quran.getListSurah(
@@ -49,13 +61,14 @@ const Read = () => {
         fetchData();
     }, [])
     return (
-        <ReadStyle>
+        <ReadStyle toggle={toggler}>
             {store.id ? <Verses id={store.id} />
                 : <div className="site-layout "  >
                     <div
                         className=" header"
                         style={{ padding: 0 }}>
                         <div className='titleContainer'>
+                            <FiMenu className="menu" onClick={handleToggle} />
                             <img src={quranWord} className="title" />
                             <h1 style={{ fontSize: "30px", color: "#00acc2", marginTop: "10px" }}>True Islam</h1>
                         </div>

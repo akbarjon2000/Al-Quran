@@ -11,15 +11,16 @@ export const Container = styled.div`
    height:100vh;
    background-color:#03045E;
    ${media.phone}{
-      width:100% !important;
+      display:${({ toggle }) => toggle ? "flex" : "none"}
    }
    .title{
       color:white;
 font-family: 'Satisfy', cursive;
 font-size:40px;
 text-align:center;
-margin-top:10px;
+margin-top:10px !important;
 margin-bottom:10px !important;
+margin:0 auto;
    }
 .devider{
    border-top:1px solid white;
@@ -27,7 +28,7 @@ margin-bottom:10px !important;
 }
 .catalog{
    text-decoration:none;
-   transition: all 0.3s;
+   transition: all 0.5s;
    height:60px;
    font-size: 25px;
    color: white;
@@ -57,6 +58,9 @@ list-style:none;
    font-size:20px;
    color:white;
    display:none;
+   position:absolute;
+   margin-right:10px;
+   right:10px;
    ${media.phone}{
       display:block;
 
@@ -73,11 +77,12 @@ list-style:none;
    padding-left:20px;
    margin-top:10px;
    width:300px;
+
    cursor:pointer;
    position:relative;
    &::after{
       content:"";
-      width:10px;
+      /* width:10px; */
       background-color:#C1FFF2;
       height:60px;
       right: 0;

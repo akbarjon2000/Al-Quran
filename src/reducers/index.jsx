@@ -32,3 +32,15 @@ export function surahReducer(state = { id: null }, action) {
     }
 }
 
+export function ToggleSidebar(state = { toggle: true }, action) {
+    switch (action.type) {
+        case "TOGGLE": {
+            return {
+                ...action.payload
+            }
+        }
+        default: {
+            return state;
+        }
+    }
+}

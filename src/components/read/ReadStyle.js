@@ -1,11 +1,19 @@
 import styled from 'styled-components';
-
+const media = {
+    phone: "@media(max-width:360px)",
+    tablet: "@media(max-width:720px)",
+    desktop: "@media(max-width:900px)"
+}
 export const ReadStyle = styled.div`
     display:flex;
     width:100%;
     height:100vh;
     overflow:auto !important;
-    background-color:rgba(245,242,245,1);;
+    background-color:rgba(245,242,245,1);
+      ${media.phone}{
+        width:${({ toggle }) => toggle ? "0px" : "100% !important"};
+
+   }
 
 .header{
     display:flex;
@@ -66,5 +74,12 @@ export const ReadStyle = styled.div`
 .footer{
     height:500px;
     width:100%;
+}
+.menu{
+    /* display:none; */
+    ${media.phone}{
+        width:${({ toggle }) => toggle ? "0px" : "100% !important"};
+
+   }
 }
 `

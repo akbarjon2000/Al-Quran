@@ -5,7 +5,7 @@ import { BiArrowBack, BiFirstPage, BiLastPage } from "react-icons/bi";
 import ayahNumBack from "../../../assets/images/ayahNumBack.png"
 import margin from "../../../assets/images/margin1.png";
 import axios from 'axios';
-
+import { useTranslation } from "react-i18next"
 
 const Verses = ({ id }) => {
     const [sura, setSura] = useState(null);
@@ -19,6 +19,7 @@ const Verses = ({ id }) => {
 
     const store = useSelector(store => store.surahReducer);
     const dispatch = useDispatch();
+    const { t } = useTranslation();
 
     const goHome = () => {
         dispatch({
@@ -99,7 +100,7 @@ const Verses = ({ id }) => {
             </div>
             <div className='center pagination'>
                 <BiFirstPage className='paginateback' onClick={paginateForth} />
-                <div className='center currentPage'>Page : {page}</div>
+                <div className='center currentPage'>{t('page')} : {page}</div>
                 <BiLastPage className='paginateforth' onClick={paginateBack} />
             </div>
         </Container>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 width:100%;
-background-color:rgba(245,242,175,0.5);
+/* background-color:rgba(245,242,175,0.5); */
 height:100vh;
 /* overflow:auto; */
 
@@ -41,7 +41,7 @@ color: #00acc2;
 /* background-image:url("./listenQuran.jpg"); */
 background-size:cover;
 /* opacity:0.5; */
-/* height:550px; */
+height:fit-content;
 /* overflow-y:auto !important; */
     background-color:rgba(245,242,175,0.5);
 

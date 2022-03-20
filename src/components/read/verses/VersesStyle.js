@@ -88,12 +88,21 @@ color: #00acc2;
    /* flex-wrap:wrap; */
 }
 .pagination{
-    width:100%;
+    /* width:100%; */
+    
     height:50px;
     background-color:#9DD9D2;
-    position:fixed;
-    bottom:0;
+    position:relative;
+    bottom:115px;
+    /* right:0; */
+    /* left:0; */
     gap:7px;
+
+
+    /* height:70px; */
+    /* font-family: 'Courgette', cursive; */
+    padding:0;
+    /* background-color:#005f73; */
 }
 .paginateback{
     font-size:20px;
