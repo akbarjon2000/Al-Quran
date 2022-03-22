@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-
+const media = {
+    phone: "@media(max-width:360px)",
+    tablet: "@media(max-width:720px)",
+    desktop: "@media(max-width:900px)"
+}
 export const Container = styled.div`
 width:100%;
 background-color:rgba(245,242,175,1);
@@ -53,7 +57,9 @@ color: #00acc2;
     width:100%;
     border-color:#FFEE32 !important;
    overflow:scroll;
-
+${media.phone}{
+    padding:0 !important;
+}
 }
 .ayahNumBack{
     width: 40px !important;
@@ -78,13 +84,39 @@ color: #00acc2;
 .text{
     margin:0 auto;
     font-size:30px;
-    width:750px;
+    width:100%;
     height:950px;
     padding:110px;
    font-family:  Arial;
    text-align:end;
    background-size:cover;
    margin-top:0;
+    ${media.phone}{
+        padding:55px;
+        padding-top:0 !important;
+        line-height:25px;
+               width:360px;
+    height:100vh;
+    font-size:18px;
+    background-position:top;
+    background-size:350px 650px;
+    background-repeat:no-repeat;
+    margin-top:0;
+
+   }
+   @media(max-width:900px){
+        padding:55px;
+        padding-top:0 !important;
+        line-height:25px;
+               width:360px;
+    height:100vh;
+    font-size:18px;
+    background-position:top;
+    background-size:350px 650px;
+    background-repeat:no-repeat;
+    margin-top:0;
+
+   }
    /* flex-wrap:wrap; */
 }
 .pagination{

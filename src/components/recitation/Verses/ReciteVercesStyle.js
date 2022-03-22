@@ -7,9 +7,7 @@ const media = {
 export const Container = styled.div`
 width:100%;
 height:100%;
-${media.phone}{
-    display:none;
-}
+
 .layout{
     width:100% !important;
     height:100vh !important;
@@ -29,9 +27,13 @@ ${media.phone}{
     background-image:url("./bg.jpg");
     background-size: cover;
     font-family: 'Courgette', cursive;
-height:80px;
-
-}  
+    height:80px;
+    ${media.phone}{
+        background-position:center;
+        background-size:400px 400px !important;
+        
+    }
+}
 .home{
     margin-left:10px;
     font-size:30px;
@@ -132,7 +134,7 @@ margin-bottom:0;
 .playPause{
      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4),
       -4px -4px 10px rgba(255, 255, 255, 0.4),
-       inset -4px -4px 10px rgba(0, 0, 0, 0.4), 
+       inset -4px -4px 10px rgba(0, 0, 0, 0.4),
        inset 4px 4px 10px rgba(255, 255, 255, 0.4);
     border-radius:50%;
 }

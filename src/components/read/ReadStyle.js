@@ -11,7 +11,8 @@ export const ReadStyle = styled.div`
     overflow:auto !important;
     background-color:rgba(245,242,245,1);
       ${media.phone}{
-        width:${({ toggle }) => toggle ? "0px" : "100% !important"};
+              display:${({ toggle }) => toggle ? "none" : "flex"}
+
 
    }
 
@@ -32,7 +33,7 @@ export const ReadStyle = styled.div`
 }
 .title{
     margin: 0 auto;
-    max-width:300px; 
+    max-width:300px;
 }
 .surah{
     width:300px;
@@ -77,9 +78,10 @@ export const ReadStyle = styled.div`
 }
 .menu{
     /* display:none; */
-    ${media.phone}{
-        width:${({ toggle }) => toggle ? "0px" : "100% !important"};
-
-   }
+position:absolute;
+right:10px;
+top:10px;
+color:black;
+font-size:20px;
 }
 `

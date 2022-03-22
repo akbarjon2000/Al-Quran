@@ -11,8 +11,11 @@ export const Container = styled.div`
    height:100vh;
    background-color:#03045E;
    ${media.phone}{
-      display:${({ toggle }) => toggle ? "flex" : "none"}
+      width:${({ toggle }) => toggle ? "100%" : "0%"};
+      display:${({ toggle }) => toggle ? "block" : "none"}
    }
+  
+
    .title{
       color:white;
 font-family: 'Satisfy', cursive;
@@ -77,7 +80,9 @@ list-style:none;
    padding-left:20px;
    margin-top:10px;
    width:300px;
-
+${media.phone}{
+      width:${({ toggle }) => toggle ? "100%" : "0px"}
+   }
    cursor:pointer;
    position:relative;
    &::after{
@@ -87,6 +92,7 @@ list-style:none;
       height:60px;
       right: 0;
       top: 0;
+
    }
    }
 `

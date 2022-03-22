@@ -9,7 +9,7 @@ import 'antd/dist/antd.css'
 import quranWord from "../../assets/images/quranulkarim.png";
 import Surah from './Surah';
 import Verses from './verses/ReciteVerses';
-
+import { FiMenu } from "react-icons/fi"
 const { Header, Sider, Content, Footer } = Layout;
 const Recitation = () => {
     const [close, setClose] = useState(false)
@@ -17,6 +17,8 @@ const Recitation = () => {
     const [surahList, setSurahList] = useState(null)
     const [audio, setAudio] = useState(null)
     const store = useSelector(state => state.surahReducer)
+    const dispatch = useDispatch();
+    const toggler = useSelector(state => state.ToggleSidebar).toggle
     // console.log("surah_id:", store)
     // console.log("audio", audio)
     const fetchData = async () => {
@@ -54,17 +56,20 @@ const Recitation = () => {
     useEffect(() => {
         fetchData();
     }, [])
-    const toggle = () => {
-        setClose(!close)
-    };
+    const handleToggle = () => {
+        dispatch({
+            type: "TOGGLE", payload: { toggle: true }
+        })
+        console.log(toggler)
+    }
     return (
-        <ReciteStyle>
+        <ReciteStyle toggle={toggler}>
             {store.id ? <Verses id={store.id} />
                 : <Layout className="site-layout "  >
                     <Header
                         className="site-layout-background header"
                         style={{ padding: 0 }}>
-                        {/* {close ? <MenuUnfoldOutlined className='trigger' onClick={toggle} /> : <MenuFoldOutlined className='trigger' onClick={toggle} />} */}
+                        <FiMenu className="menu" onClick={handleToggle} />
                         <div className='titleContainer'>
                             <img src={quranWord} className="title" />
                             <h1 style={{ fontSize: "30px", color: "#00acc2" }}>True Islam</h1>

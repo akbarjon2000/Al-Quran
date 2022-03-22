@@ -1,12 +1,19 @@
 import styled from 'styled-components';
-
+const media = {
+    phone: "@media(max-width:360px)",
+    tablet: "@media(max-width:720px)",
+    desktop: "@media(max-width:900px)"
+}
 export const ReciteStyle = styled.div`
     display:flex;
     width:100%;
     height:100vh;
     overflow:auto;
     background-color:rgba(245,242,245,1);
-
+ ${media.phone}{
+              display:${({ toggle }) => toggle ? "none" : "flex"};
+              width:100%;
+   }
 .layout{
     /* width:50%; */
     height:100%;
@@ -83,6 +90,14 @@ export const ReciteStyle = styled.div`
 .footer{
     height:500px;
     width:100%;
+}
+.menu{
+    /* display:none; */
+position:absolute;
+right:10px;
+top:10px;
+color:black;
+font-size:20px;
 }
 
 `

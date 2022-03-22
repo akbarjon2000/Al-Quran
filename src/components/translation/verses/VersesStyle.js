@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-
+const media = {
+    phone: "@media(max-width:360px)",
+    tablet: "@media(max-width:720px)",
+    desktop: "@media(max-width:900px)"
+}
 export const Container = styled.div`
 width:100%;
 /* background-color:rgba(245,242,175,0.5); */
@@ -17,6 +21,12 @@ height:100vh;
 background-color:#005f73;
     padding-top:20px;
 }  
+.header > h1{
+    ${media.mobile}{
+       font-size:22px !important;
+        
+    }
+}
 .back{
     position:fixed;
     font-size:30px;
@@ -87,4 +97,5 @@ font-size:20px;
 .translation{
     font-size:20px;
 }
+
 `

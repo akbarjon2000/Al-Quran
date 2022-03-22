@@ -85,11 +85,9 @@ const Verses = ({ id }) => {
                 </div>
             </div>
             <div
+                onSl
                 className="content"
                 style={{
-                    // margin: '24px 16px',
-                    padding: 24,
-                    minHeight: 280,
                 }}>
                 {/* {test?.map((verse, index) => (
                     <div className='oyahDiv'>

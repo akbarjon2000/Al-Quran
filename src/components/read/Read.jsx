@@ -22,7 +22,6 @@ const Read = () => {
         dispatch({
             type: "TOGGLE", payload: { toggle: true }
         })
-        console.log(toggler)
     }
 
     const fetchData = async () => {

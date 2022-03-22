@@ -11,6 +11,7 @@ const Sidebar = () => {
     const [toggle, setToggle] = useState(true)
     const dispatch = useDispatch();
     const store = useSelector(state => state.ToggleSidebar).toggle
+
     const handleToggle = () => {
         // setToggle(!toggle);
         dispatch({ type: "TOGGLE", payload: { toggle: false } })
