@@ -32,7 +32,7 @@ export function surahReducer(state = { id: null }, action) {
     }
 }
 
-export function ToggleSidebar(state = { toggle: true }, action) {
+export function ToggleSidebar(state = { toggle: false }, action) {
     switch (action.type) {
         case "TOGGLE": {
             return {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const media = {
-    phone: "@media(max-width:360px)",
+    phone: "@media(max-width:450px)",
     tablet: "@media(max-width:720px)",
     desktop: "@media(max-width:900px)"
 }
@@ -28,6 +28,8 @@ background-color:rgba(245,242,175,1);
     font-family: 'Courgette', cursive;
     padding:0;
     background-color:#005f73;
+    background-size:cover !important;
+    background-repeat:no-repeat  !important;
     /* padding-top:20px; */
 }  
 .back{

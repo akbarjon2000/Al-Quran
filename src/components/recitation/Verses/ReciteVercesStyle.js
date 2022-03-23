@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const media = {
-    phone: "@media(max-width:360px)",
+    phone: "@media(max-width:450px)",
     tablet: "@media(max-width:720px)",
     desktop: "@media(max-width:900px)"
 }
@@ -55,7 +55,18 @@ color: #00acc2;
     justify-content:flex-start;
     align-items:flex-end;
     flex-wrap:nowrap;
-background-image:url("./listenQuran.jpg");
+    background-image:url("./daylightIslam2.jpg");
+    background-image:url("./vector.jpg");
+    background-image:url("./ramadon.jfif");
+    background-image:url("./listenQuran.jpg");
+
+${media.phone}{
+background-position:center;
+
+    background-image:url("./islamWorld.jpg");
+}
+background-position:center;
+/* background-size:550px 700px; */
 background-size:cover;
 /* opacity:0.5; */
 height:550px;
@@ -119,7 +130,7 @@ margin-bottom:0;
     cursor:pointer;
     color:white;
     &:hover{
-        color:#dbff00;
+        color:#F7B801;
     }
 
 }
@@ -128,7 +139,7 @@ margin-bottom:0;
     cursor:pointer;
     color:white;
     &:hover{
-        color:#dbff00;
+        color:#F7B801;
     }
 }
 .playPause{
@@ -187,9 +198,9 @@ margin-bottom:0;
     cursor:pointer;
     color:white;
     &:hover{
-        color:#dbff00;
+        color:#F7B801;
     }
-    color: ${({ loop }) => loop ? "#dbff00" : "white"}
+    color: ${({ loop }) => loop ? "#F7B801" : "white"}
 }
 .speedbtn{
       position:relative;
@@ -199,7 +210,7 @@ margin-bottom:0;
     cursor:pointer;
     color:white;
     &:hover{
-        color:#dbff00;
+        color:#F7B801;
     }
 
     /* margin-right:5px; */
@@ -216,11 +227,23 @@ margin-bottom:0;
     padding:5px;
     bottom:50px;
     left:500px;
-
+${media.phone}{
+    left:10px;
+    bottom:130px;
+}
 }
 
 .label{
     gap:5px;
     cursor: pointer;
+}
+.ayahArabic{
+    /* flex-wrap:wrap-reverse !important;
+    justify-content:flex-start !important;
+    padding-right:0 !important; */
+    text-align:right;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size:30px !important;
 }
 `

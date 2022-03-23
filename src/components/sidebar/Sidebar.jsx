@@ -29,6 +29,7 @@ const Sidebar = () => {
                         <NavLink
                             to={path}
                             className={({ isActive }) => isActive ? "align__center test" : "align__center catalog"}
+                            onClick={handleToggle}
                         >
                             <Icon />
                             <p>{t(`${title}`)}</p>

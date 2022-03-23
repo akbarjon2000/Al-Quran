@@ -5,10 +5,13 @@ import i18next from 'i18next';
 import { useTranslation, initReactI18next } from "react-i18next"
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from "i18next-http-backend";
+import { useSelector, useDispatch } from "react-redux"
+
+//ICONS:
 import uae from "../../assets/images/UAE.webp"
 import uzb from "../../assets/images/UzFlag.png"
 import usa from "../../assets/images/USA.webp"
-
+import { FiMenu } from "react-icons/fi";
 
 i18next
     .use(initReactI18next)
@@ -35,6 +38,10 @@ const Setting = () => {
     const [fontName, setFontName] = useState("Medium");
     const [font, setFont] = useState(30);
     const { t } = useTranslation();
+    const dispatch = useDispatch();
+    const toggler = useSelector(state => state.ToggleSidebar).toggle;
+
+
     const languages = [
         {
             code: 'ar',
@@ -84,22 +91,33 @@ const Setting = () => {
         setFont(font)
     }
 
+    const handleToggle = () => {
+        dispatch({
+            type: "TOGGLE", payload: { toggle: true }
+        })
+    }
+
     return (
-        <Container showModal={showModal} showModal2={showModal2}>
+        <Container showModal={showModal} showModal2={showModal2} toggle={toggler}>
+            <FiMenu className="menu" onClick={handleToggle} />
             <div className='center title'><p>{t('Settings')}</p></div>
             <div className='align__center set'>
                 <div >
-                    <p style={{ fontWeight: "600", margin: "0" }}>{t('languages')}</p>
+                    <p style={{ fontWeight: "600", margin: "0" }} className="langTitle">{t('languages')}</p>
                     <p style={{
                         margin: "0",
                         fontSize: '20px'
-                    }}>{t('choice')}</p>
+                    }}
+                        className="langText"
+                    >
+                        {t('choice')}
+                    </p>
                 </div>
 
                 <div className='align__center langModal'
                     onClick={() => { setShowModal(!showModal); setShowModal2(false) }}>
                     <p>{lang}</p>
-                    <div style={{ backgroundColor: "#52B788", width: '50px', height: "50px", color: "white" }} className="center"  >
+                    <div style={{ backgroundColor: "#52B788", width: '50px', height: "50px", color: "white" }} className="center arrowContainer"  >
                         <IoIosArrowForward className='arrow' />
                     </div>
                     <div className='Modal'>
@@ -123,39 +141,43 @@ const Setting = () => {
 
             <div className='align__center set2'>
                 <div >
-                    <p style={{ fontWeight: "600", margin: "0" }}>{t('font_size')}</p>
+                    <p style={{ fontWeight: "600", margin: "0" }} className="fontTitle">{t('font_size')}</p>
                     <p style={{
                         margin: "0",
                         fontSize: '20px'
-                    }}>{t('comfort_font')}</p>
+                    }}
+                        className="fontText"
+                    >
+                        {t('comfort_font')}
+                    </p>
                 </div>
-                <div className='align__center langModal'
+                <div
+                    className='align__center fontModal'
                     onClick={() => { setShowModal2(!showModal2); setShowModal(false) }}
                 >
                     <div className='Modal2'>
                         {fonts.map((value, index) => (
-
                             <button
                                 style={{ fontSize: `${value.font}px` }}
                                 className="align__center flag__con"
                                 id={index}
                                 onClick={() => handleFont(value.name, value.font)}
-                            // disabled={value.code === currentLangCode}
                             >
                                 {t(value.name)}
                             </button>
                         ))}
                     </div>
                     <p>{t(fontName)}</p>
-                    <div style={{ backgroundColor: "#52B788", width: '50px', height: "50px", color: "white" }} className="center"  >
+                    <div style={{ backgroundColor: "#52B788", width: '50px', height: "50px", color: "white" }} className="center arrowContainer"  >
                         <IoIosArrowForward className='arrow' />
                     </div>
                 </div>
             </div >
 
             <div className='divider'></div>
+
             <div className='set3'>
-                <a href='/' style={{ fontWeight: "600", margin: "0" }}>{t('help')}</a>
+                <a href='d:/workplace/alquran/README.md' style={{ fontWeight: "600", margin: "0" }}>{t('help')}</a>
                 <p style={{
                     margin: "0",
                     fontSize: '20px'

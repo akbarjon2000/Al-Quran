@@ -179,7 +179,7 @@ const ReciteVerses = ({ id }) => {
                     }}>
                     {sura?.verses.map((verse, index) => (
                         <div key={index} className='align__center oyahDiv' onClick={() => Audio(index)}>
-                            <p style={{ display: "flex", justifyContent: "flex-end", fontSize: "25px", zIndex: "2", filter: "brightness(210%) !important" }}>{verse.text.arab}</p>
+                            <p style={{ display: "flex", justifyContent: "flex-end", fontSize: "25px", zIndex: "2", filter: "brightness(210%) !important" }} className="ayahArabic">{verse.text.arab}</p>
                             <div>
                                 <div style={{ backgroundImage: `url(${ayahNumBack})` }} className="center ayahNumBack">{index + 1}</div>
                             </div>

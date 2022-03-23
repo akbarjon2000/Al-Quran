@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const media = {
-    phone: "@media(max-width:360px)",
+    phone: "@media(max-width:450px)",
     tablet: "@media(max-width:720px)",
     desktop: "@media(max-width:900px)"
 }
@@ -22,7 +22,7 @@ background-color:#005f73;
     padding-top:20px;
 }  
 .header > h1{
-    ${media.mobile}{
+    ${media.phone}{
        font-size:22px !important;
         
     }
@@ -88,6 +88,11 @@ height:fit-content;
     margin:0;
     font-weight:600;
     font-size:25px;
+}
+.transContainer{
+    ${media.phone}{
+        padding-left: 10px !important;
+    }
 }
 .transliteration{
     color:#0a9396;

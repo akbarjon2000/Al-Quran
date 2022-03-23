@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 const media = {
-    phone: "@media(max-width:360px)",
+    phone: "@media(max-width:450px)",
     tablet: "@media(max-width:720px)",
     desktop: "@media(max-width:900px)"
 }
@@ -77,9 +77,11 @@ export const ReadStyle = styled.div`
     width:100%;
 }
 .menu{
-    /* display:none; */
+${media.phone}{
+    display:${({ toggle }) => toggle ? "none" : "block"}
+}
 position:absolute;
-right:10px;
+left:10px;
 top:10px;
 color:black;
 font-size:20px;
