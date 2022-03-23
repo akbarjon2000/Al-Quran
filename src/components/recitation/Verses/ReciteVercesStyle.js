@@ -55,9 +55,9 @@ color: #00acc2;
     justify-content:flex-start;
     align-items:flex-end;
     flex-wrap:nowrap;
-    background-image:url("./daylightIslam2.jpg");
+    /* background-image:url("./daylightIslam2.jpg");
     background-image:url("./vector.jpg");
-    background-image:url("./ramadon.jfif");
+    background-image:url("./ramadon.jfif"); */
     background-image:url("./listenQuran.jpg");
 
 ${media.phone}{
