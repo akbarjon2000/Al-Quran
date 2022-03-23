@@ -77,6 +77,7 @@ export const ReadStyle = styled.div`
     width:100%;
 }
 .menu{
+    display:none;
 ${media.phone}{
     display:${({ toggle }) => toggle ? "none" : "block"}
 }
