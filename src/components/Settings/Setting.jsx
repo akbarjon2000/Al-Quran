@@ -99,11 +99,13 @@ const Setting = () => {
         })
     }
 
-    const signOut = () => {
+    const SignOut = () => {
         signOut(auth)
-        dispatch({
-            type: "SIGN_OUT", payload: { isLoggedIn: false }
-        })
+            .then(() => {
+                dispatch({
+                    type: "SIGN_OUT", payload: { isLoggedIn: false }
+                })
+            })
         console.log(loggedin)
             .then(() => {
                 console.log("user signed out");
@@ -113,7 +115,7 @@ const Setting = () => {
         <Container showModal={showModal} showModal2={showModal2} toggle={toggler}>
             <FiMenu className="menu" onClick={handleToggle} />
             <div className='center title'><p>{t('Settings')}</p>
-                <AiOutlinePoweroff className='align__center sign_out' onClick={signOut} />
+                <AiOutlinePoweroff className='align__center sign_out' onClick={SignOut} />
             </div>
             <div className='align__center set'>
                 <div >

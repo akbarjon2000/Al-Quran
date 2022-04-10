@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { Container } from './sign_up_style'
 import { initializeApp } from "firebase/app"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth"
 const firebaseConfig = {
     apiKey: "AIzaSyCFI59CNAVEYaosfRtSGjqWZ449wsTTB4k",
     authDomain: "al-quran-auth.firebaseapp.com",
@@ -14,8 +15,11 @@ const firebaseConfig = {
 };
 const SignUp = () => {
     const [signForm, setSignForm] = useState({ email: "", password: "" })
+    const [error, setError] = useState(null)
     initializeApp(firebaseConfig);
+    const navigate = useNavigate();
     const auth = getAuth();
+    console.log(auth)
     const dispatch = useDispatch();
     const state = useSelector(store => store.isLoggedIn)
     console.log(state)
@@ -25,11 +29,13 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, signForm.email, signForm.password)
             .then((cred) => {
                 console.log(cred.user);
+                navigate("listen")
                 dispatch({
                     type: "SIGN_UP", payload: { isLoggedIn: true }
                 })
             })
             .catch((err) => {
+                setError(err.message)
                 console.log(err)
             })
     }
@@ -37,6 +43,9 @@ const SignUp = () => {
     const handleChange = (e) => {
         let name = e.target.name;
         setSignForm(prevState => ({ ...prevState, [name]: e.target.value }));
+    }
+    const Logout = () => {
+        signOut(auth);
     }
     return (
         <Container >
@@ -46,11 +55,15 @@ const SignUp = () => {
                     <label htmlFor='email' className='label'>Email:</label>
                     <input name='email' id='email' type="email" className='input' value={signForm.email} onChange={handleChange} required />
                     <label htmlFor='password' className='label' style={{ marginTop: "10px" }} >Password:</label>
-                    <input name='password' id='password' type="password" className='input' required value={signForm.password} onChange={handleChange} />
+                    <input name='password' id='password' type="password" className='input' required value={signForm.password} onChange={handleChange} minLength="6" />
                     <label htmlFor='confirm' className='label' style={{ marginTop: "10px" }}>Confirm your password:</label>
                     <input name='confirm' id='confirm' type="password" className='input' required />
-                    <p>Already have an account?</p>
+                    <p onClick={() => navigate("/sign_in")}>Already have an account?</p>
                     <button onClick={handleSubmit}>Sign Up</button>
+                    <button onClick={Logout}>logout</button>
+                    {error &&
+                        <p className='error'>{error} </p>
+                    }
 
 
                 </form>
