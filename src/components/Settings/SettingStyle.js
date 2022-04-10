@@ -21,6 +21,15 @@ background-color:#005F73;
 font-size:30px;
 color:white;
 }
+.sign_out{
+    position:absolute;
+    right:10px;
+    font-size:20px;
+    cursor: pointer;
+    &:hover{
+        color:red;
+    }
+}
 .set{
     color:black;
     font-size:30px;

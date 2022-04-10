@@ -6,12 +6,13 @@ import { useTranslation, initReactI18next } from "react-i18next"
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from "i18next-http-backend";
 import { useSelector, useDispatch } from "react-redux"
-
+import { signOut, getAuth } from "firebase/auth"
 //ICONS:
 import uae from "../../assets/images/UAE.webp"
 import uzb from "../../assets/images/UzFlag.png"
 import usa from "../../assets/images/USA.webp"
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, } from "react-icons/fi";
+import { AiOutlinePoweroff } from "react-icons/ai";
 
 i18next
     .use(initReactI18next)
@@ -40,7 +41,8 @@ const Setting = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const toggler = useSelector(state => state.ToggleSidebar).toggle;
-
+    const loggedin = useSelector(state => state.Login).isLoggedIn
+    const auth = getAuth();
 
     const languages = [
         {
@@ -97,10 +99,22 @@ const Setting = () => {
         })
     }
 
+    const signOut = () => {
+        signOut(auth)
+        dispatch({
+            type: "SIGN_OUT", payload: { isLoggedIn: false }
+        })
+        console.log(loggedin)
+            .then(() => {
+                console.log("user signed out");
+            })
+    }
     return (
         <Container showModal={showModal} showModal2={showModal2} toggle={toggler}>
             <FiMenu className="menu" onClick={handleToggle} />
-            <div className='center title'><p>{t('Settings')}</p></div>
+            <div className='center title'><p>{t('Settings')}</p>
+                <AiOutlinePoweroff className='align__center sign_out' onClick={signOut} />
+            </div>
             <div className='align__center set'>
                 <div >
                     <p style={{ fontWeight: "600", margin: "0" }} className="langTitle">{t('languages')}</p>

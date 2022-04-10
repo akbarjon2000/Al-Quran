@@ -19,8 +19,8 @@ const Recitation = () => {
     const store = useSelector(state => state.surahReducer)
     const dispatch = useDispatch();
     const toggler = useSelector(state => state.ToggleSidebar).toggle
-    // console.log("surah_id:", store)
-    // console.log("audio", audio)
+    console.log("surah_id:", store)
+    console.log("toggler", toggler)
     const fetchData = async () => {
         const quran = new QuranKemenag();
         quran.getListSurah(

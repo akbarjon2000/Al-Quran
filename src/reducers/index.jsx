@@ -44,3 +44,17 @@ export function ToggleSidebar(state = { toggle: false }, action) {
         }
     }
 }
+
+export function Login(state = { isLoggedIn: false }, action) {
+    switch (action.type) {
+        case "SIGN_UP": {
+            return { ...action.payload }
+        }
+        case "SIGN_OUT": {
+            return { ...action.payload }
+        }
+        default: {
+            return state;
+        }
+    }
+}
