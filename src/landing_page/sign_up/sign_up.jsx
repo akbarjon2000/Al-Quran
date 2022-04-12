@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { Container } from './sign_up_style'
 import { initializeApp } from "firebase/app"
 import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth"
+import { AuthContext } from '../../context/authContext'
 const firebaseConfig = {
     apiKey: "AIzaSyCFI59CNAVEYaosfRtSGjqWZ449wsTTB4k",
     authDomain: "al-quran-auth.firebaseapp.com",
@@ -18,7 +19,7 @@ const SignUp = () => {
     const [error, setError] = useState(null)
     initializeApp(firebaseConfig);
     const navigate = useNavigate();
-    const auth = getAuth();
+    const auth = useContext(AuthContext);
     console.log(auth)
     const dispatch = useDispatch();
     const state = useSelector(store => store.isLoggedIn)
@@ -60,13 +61,13 @@ const SignUp = () => {
                     <input name='confirm' id='confirm' type="password" className='input' required />
                     <p onClick={() => navigate("/sign_in")}>Already have an account?</p>
                     <button onClick={handleSubmit}>Sign Up</button>
-                    <button onClick={Logout}>logout</button>
                     {error &&
                         <p className='error'>{error} </p>
                     }
 
 
                 </form>
+                {/* <button onClick={Logout}>logout</button> */}
             </div>
         </Container>
     )

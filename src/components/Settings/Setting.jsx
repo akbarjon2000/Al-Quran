@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { useNavigate } from "react-router-dom"
 import { Container } from './SettingStyle'
 import { IoIosArrowForward } from "react-icons/io"
 import i18next from 'i18next';
@@ -13,6 +14,8 @@ import uzb from "../../assets/images/UzFlag.png"
 import usa from "../../assets/images/USA.webp"
 import { FiMenu, } from "react-icons/fi";
 import { AiOutlinePoweroff } from "react-icons/ai";
+import { AuthContext } from '../../context/authContext';
+
 
 i18next
     .use(initReactI18next)
@@ -41,8 +44,9 @@ const Setting = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const toggler = useSelector(state => state.ToggleSidebar).toggle;
-    const loggedin = useSelector(state => state.Login).isLoggedIn
-    const auth = getAuth();
+    const loggedin = useSelector(state => state.Login).isLoggedIn;
+    const navigate = useNavigate();
+    const auth = useContext(AuthContext);
 
     const languages = [
         {
@@ -105,6 +109,7 @@ const Setting = () => {
                 dispatch({
                     type: "SIGN_OUT", payload: { isLoggedIn: false }
                 })
+                navigate("/");
             })
         console.log(loggedin)
             .then(() => {

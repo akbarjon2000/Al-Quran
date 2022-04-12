@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
+import AuthContextProver from "../context/authContext"
 import Recitation from '../components/recitation/Recitation';
 import Sidebar from '../components/sidebar/Sidebar';
 import { sidebarObj } from '../utils/sidebar';
@@ -15,7 +15,7 @@ function Root() {
     // const [start, setStart] = useContext(StartContext);
     return (
         <div style={{ display: "flex", height: "100%" }}>
-            <AuthContextProvider>
+            <AuthContextProver>
                 <BrowserRouter>
                     {isLoggedIn ?
                         <>
@@ -28,13 +28,13 @@ function Root() {
                             </Routes>
                         </>
                         : <Routes>
-                            <Route path='*' element={<SignUp />} />
+                            <Route path='/' element={<SignUp />} />
                             <Route path='/sign_up' element={<SignUp />} />
                             <Route path="/sign_in" element={<SignIn />} />
                         </Routes>
                     }
                 </BrowserRouter>
-            </AuthContextProvider>
+            </AuthContextProver>
         </div>
 
     )
