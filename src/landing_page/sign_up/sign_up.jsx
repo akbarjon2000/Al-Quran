@@ -30,7 +30,7 @@ const SignUp = () => {
         createUserWithEmailAndPassword(auth, signForm.email, signForm.password)
             .then((cred) => {
                 console.log(cred.user);
-                navigate("listen")
+                navigate("/listen")
                 dispatch({
                     type: "SIGN_UP", payload: { isLoggedIn: true }
                 })
@@ -44,9 +44,6 @@ const SignUp = () => {
     const handleChange = (e) => {
         let name = e.target.name;
         setSignForm(prevState => ({ ...prevState, [name]: e.target.value }));
-    }
-    const Logout = () => {
-        signOut(auth);
     }
     return (
         <Container >

@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
+
+import { createUserWithEmailAndPassword } from "firebase/auth"
+
+
 import { useNavigate } from "react-router-dom"
 import { Container } from './SettingStyle'
 import { IoIosArrowForward } from "react-icons/io"
@@ -35,7 +39,6 @@ i18next
         react: { useSuspense: false }
     });
 const Setting = () => {
-
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
     const [lang, setLang] = useState("English");
@@ -105,13 +108,13 @@ const Setting = () => {
 
     const SignOut = () => {
         signOut(auth)
-            .then(() => {
+            .then((cred) => {
                 dispatch({
                     type: "SIGN_OUT", payload: { isLoggedIn: false }
                 })
+                console.log("cred:", cred)
                 navigate("/");
             })
-        console.log(loggedin)
             .then(() => {
                 console.log("user signed out");
             })
@@ -204,7 +207,6 @@ const Setting = () => {
                     fontSize: '20px'
                 }}>{t('comment')}</p>
             </div>
-
         </Container >
     )
 }
