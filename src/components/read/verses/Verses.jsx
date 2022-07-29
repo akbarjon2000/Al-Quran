@@ -10,8 +10,8 @@ import { useTranslation } from "react-i18next"
 const Verses = ({ id }) => {
     const [sura, setSura] = useState(null);
     const [page, setPage] = useState(null);
-    const [text, setText] = useState(sura?.verses.filter(verse => verse.meta.page === 1).map(value => value.text.arab).join(" "));
-    const [pageLength, setPageLength] = useState(sura?.verses.length);
+    const [text, setText] = useState(sura?.ayahs?.filter(verse => verse.page === 1).map(value => value.ayahText).join(" "));
+    const [pageLength, setPageLength] = useState(sura?.ayahs.length);
     const [test, setTest] = useState(null);
     console.log("LENGTH:", pageLength)
     console.log(page)
@@ -28,7 +28,7 @@ const Verses = ({ id }) => {
     }
 
     const paginateBack = () => {
-        if (page !== sura?.verses[0].meta.page) {
+        if (page !== sura?.ayahs[0].page) {
             setPage(page - 1)
         }
     }
@@ -40,15 +40,15 @@ const Verses = ({ id }) => {
 
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/${id}`)
-            setPageLength(data.data.verses[data.data.verses.length - 1].meta.page);
-            setPage(data.data.verses[0].meta.page)
-            setSura(data.data);
+            const { data } = await axios.get(`https://quranapi.idn.sch.id/surah/${id}`)
+            setPageLength(data.ayahs[data.ayahs.length - 1].page);
+            setPage(data.ayahs[0].page)
+            setSura(data);
             // setText(data.data.verses.map((value, index) => value.text.arab + ` ${index + 1} `));
-            setTest(data.data.verses.filter(verse => verse.meta.page === page).map(value => value.text.arab))
-            setText(data.data.verses.filter(verse => verse.meta.page === page).map(value => value.text.arab).join(" "))
+            setTest(data.ayahs.filter(verse => verse.page === page).map(value => value.ayahText))
+            setText(data.ayahs.filter(verse => verse.page === page).map(value => value.ayahText).join(" "))
             // console.log("text", text.join(" "));
-            console.log(data.data);
+            console.log(data);
 
         } catch (error) {
             console.log(error)
@@ -58,8 +58,8 @@ const Verses = ({ id }) => {
 
     const fetchSurah = async () => {
         try {
-            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/${id}`)
-            setText(data.data.verses.filter(verse => verse.meta.page === page).map(value => value.text.arab).join(" "))
+            const { data } = await axios.get(`https://quranapi.idn.sch.id/surah/${id}`)
+            setText(data.ayahs.filter(verse => verse.page === page).map(value => value.ayahText).join(" "))
 
         } catch (error) {
             console.log(error)
@@ -81,7 +81,7 @@ const Verses = ({ id }) => {
                 style={{ padding: 0 }}>
                 <BiArrowBack className='back' onClick={goHome} />
                 <div className='titleContainer'>
-                    <h1 style={{ fontSize: "3rem", color: "#F7B801" }}>{sura?.name.long}</h1>
+                    <h1 style={{ fontSize: "3rem", color: "#F7B801" }}>{sura?.asma}</h1>
                 </div>
             </div>
             <div

@@ -86,7 +86,7 @@ ${media.phone}{
 .text{
     margin:0 auto;
     font-size:30px;
-    width:100%;
+    width:80%;
     height:950px;
     padding:110px;
    font-family:  Arial;

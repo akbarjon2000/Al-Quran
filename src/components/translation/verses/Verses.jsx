@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const Verses = ({ id }) => {
     const [sura, setSura] = useState(null);
-    const [text, setText] = useState(sura?.verses?.map(value => value.text.arab));
+    const [text, setText] = useState(sura?.ayahs?.map(value => value.ayahText));
     console.log(text);
     // var index = 0;
     const store = useSelector(store => store.surahReducer);
@@ -26,9 +26,9 @@ const Verses = ({ id }) => {
 
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/${id}`)
-            setSura(data.data);
-            console.log(data?.data);
+            const { data } = await axios.get(`https://quranapi.idn.sch.id/surah/${id}`)
+            setSura(data);
+            console.log(data);
 
         } catch (error) {
             console.log(error)
@@ -47,7 +47,7 @@ const Verses = ({ id }) => {
                 style={{ padding: 0 }}>
                 <BiArrowBack className='back' onClick={goHome} />
 
-                <h1 style={{ fontSize: "2rem", color: "#F7B801", margin: "0 auto" }}>{sura?.name.short} - {sura?.name.translation.en}</h1>
+                <h1 style={{ fontSize: "2rem", color: "#F7B801", margin: "0 auto" }}>{sura?.asma} - {sura?.translationEn}</h1>
 
             </div>
             <div
@@ -57,16 +57,16 @@ const Verses = ({ id }) => {
                     padding: 24,
                     minHeight: 280,
                 }}>
-                {sura?.verses?.map((verse, index) => (
+                {sura?.ayahs?.map((verse, index) => (
                     <div className='oyahDiv'>
 
                         <div className='Row1'>
                             <div style={{ backgroundImage: `url(${ayahNumBack})`, }} className="center ayahNumBack">{index + 1}</div>
-                            <p className="ayahText"> {verse.text.arab}</p>
+                            <p className="ayahText"> {verse.ayahText}</p>
                         </div>
                         <div style={{ paddingLeft: "60px" }} className="transContainer">
-                            <p className='transliteration'>{verse.text.transliteration.en}</p>
-                            <p className='translation'>{verse.translation.en}</p>
+                            <p className='transliteration'>{verse.readText}</p>
+                            <p className='translation'>{verse.enText}</p>
                         </div>
                     </div>
                 ))}

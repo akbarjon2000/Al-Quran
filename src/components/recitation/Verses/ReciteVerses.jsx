@@ -16,7 +16,7 @@ const { Header, Content, Footer } = Layout;
 const ReciteVerses = ({ id }) => {
 
     const [sura, setSura] = useState(null);
-    const [audio, setAudio] = useState(sura?.verses[0]);
+    const [audio, setAudio] = useState(sura?.ayahs[0]);
     const [surahid, setSurahId] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [duration, setDuration] = useState(0)
@@ -50,9 +50,9 @@ const ReciteVerses = ({ id }) => {
 
     const fetchData = async () => {
         try {
-            const { data } = await axios.get(`https://api.quran.sutanlab.id/surah/${id}`)
-            console.log(data.data)
-            setSura(data.data);
+            const { data } = await axios.get(`https://quranapi.idn.sch.id/surah/${id}`)
+            console.log(data)
+            setSura(data);
             console.log("duration", duration);
 
         } catch (error) {
@@ -60,7 +60,7 @@ const ReciteVerses = ({ id }) => {
         }
     }
     const Audio = async (index) => {
-        const chosenAudio = await sura?.verses[index]?.audio?.primary
+        const chosenAudio = await sura?.ayahs[index]?.audio
         setSurahId(index);
         setAudio(chosenAudio)
         animationRef.current = requestAnimationFrame(whilePlaying);
@@ -70,13 +70,13 @@ const ReciteVerses = ({ id }) => {
 
     const nextAyah = () => {
         setSurahId(surahid + 1);
-        const chosenAudio = sura?.verses[surahid]?.audio?.primary;
+        const chosenAudio = sura?.ayahs[surahid]?.audio;
         setAudio(chosenAudio);
         setIsPlaying(false);
     }
     const previousAyah = () => {
         setSurahId(surahid - 1);
-        const chosenAudio = sura?.verses[surahid]?.audio?.primary;
+        const chosenAudio = sura?.ayahs[surahid]?.audio;
         setAudio(chosenAudio);
         setIsPlaying(false);
     }
@@ -141,7 +141,7 @@ const ReciteVerses = ({ id }) => {
 
     const handleOnEnd = () => {
         setSurahId(surahid + 1);
-        const chosenAudio = sura?.verses[surahid]?.audio?.primary;
+        const chosenAudio = sura?.ayahs[surahid]?.audio;
         setAudio(chosenAudio);
         setIsPlaying(false);
     }
@@ -168,7 +168,7 @@ const ReciteVerses = ({ id }) => {
                     style={{ padding: 0 }}>
 
                     <BiArrowBack className='home' onClick={goHome} />
-                    <h1 style={{ fontSize: "3rem", color: "#F7B801", margin: "0 auto" }}>{sura?.name.transliteration.en}</h1>
+                    <h1 style={{ fontSize: "3rem", color: "#F7B801", margin: "0 auto" }}>{sura?.name}</h1>
 
                 </Header>
                 <Content
@@ -177,9 +177,9 @@ const ReciteVerses = ({ id }) => {
                         padding: 24,
                         minHeight: 280,
                     }}>
-                    {sura?.verses.map((verse, index) => (
+                    {sura?.ayahs.map((verse, index) => (
                         <div key={index} className='align__center oyahDiv' onClick={() => Audio(index)}>
-                            <p style={{ display: "flex", justifyContent: "flex-end", fontSize: "25px", zIndex: "2", filter: "brightness(210%) !important" }} className="ayahArabic">{verse.text.arab}</p>
+                            <p style={{ display: "flex", justifyContent: "flex-end", fontSize: "25px", zIndex: "2", filter: "brightness(210%) !important" }} className="ayahArabic">{verse.ayahText}</p>
                             <div>
                                 <div style={{ backgroundImage: `url(${ayahNumBack})` }} className="center ayahNumBack">{index + 1}</div>
                             </div>
@@ -191,23 +191,23 @@ const ReciteVerses = ({ id }) => {
                         <div>
                             <MdSpeed className='speedbtn' onClick={getSpeed} />
                             <div className='speedModal'>
-                                <label for="0.5" onClick={handleSpeed} className="align__center label">
+                                <label htmlFor="0.5" onClick={handleSpeed} className="align__center label">
                                     <input type="radio" id='0.5' name="half" checked={half} />
                                     <p style={{ fontSize: "20px" }} >0.5x</p>
                                 </label>
-                                <label for="0.75" onClick={handleSpeed} className="align__center label">
+                                <label htmlFor="0.75" onClick={handleSpeed} className="align__center label">
                                     <input type="radio" id='0.75' name="threeforth" checked={threeforth} />
                                     <p style={{ fontSize: "20px" }} >0.75x</p>
                                 </label>
-                                <label for="1" onClick={handleSpeed} className="align__center label">
+                                <label htmlFor="1" onClick={handleSpeed} className="align__center label">
                                     <input type="radio" id='1' name="one" checked={one} />
                                     <p style={{ fontSize: "20px" }} >1x</p>
                                 </label>
-                                <label for="1.25" onClick={handleSpeed} className="align__center label">
+                                <label htmlFor="1.25" onClick={handleSpeed} className="align__center label">
                                     <input type="radio" id='1.25' name="onetventyfive" checked={onetventyfive} />
                                     <p style={{ fontSize: "20px" }} >1.25x</p>
                                 </label>
-                                <label for="1.5" onClick={handleSpeed} className="align__center label">
+                                <label htmlFor="1.5" onClick={handleSpeed} className="align__center label">
                                     <input type="radio" id='1.5' name="onehalf" checked={onehalf} />
                                     <p style={{ fontSize: "20px" }} >1.5x</p>
                                 </label>
